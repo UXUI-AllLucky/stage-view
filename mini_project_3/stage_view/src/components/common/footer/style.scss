@@ -1,0 +1,31 @@
+#footer {
+  width: 100%;
+  border-top: 1px solid #e5e5e5;
+  background: #fafafa;
+}
+
+#footer .inner {
+  height: 130px;
+  padding: 20px;
+}
+#footer .inner div {
+  display: flex;
+  margin-bottom: 32px;
+}
+#footer .inner div img {
+  width: 40px;
+  margin-right: 514px;
+}
+#footer .inner div .footerMenu {
+  display: flex;
+  gap: 90px;
+}
+#footer .inner div .footerMenu li {
+  font-size: 12px;
+  color: #333333;
+}
+
+#footer .copy {
+  font-size: 10px;
+  color: #8e8e8e;
+}

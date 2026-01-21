@@ -1,0 +1,132 @@
+.video-slider {
+  margin-top: 25px;
+  height: 460px;
+  width: 100%;
+  max-width: 567px;
+  overflow: hidden;
+  touch-action: pan-x;
+  user-select: none;
+  margin-left: auto;
+  margin-right: auto;
+
+  /*  양쪽 끝을 부드럽게 흐리게 만드는 마스크 효과 */
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 5%,
+    black 95%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 5%,
+    black 95%,
+    transparent 100%
+  );
+}
+
+.video-slider__slide {
+  width: 264.75px;
+  height: auto;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+.base-template__title {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  color: #333;
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 160%;
+  letter-spacing: -1.04px;
+}
+
+.video-slider__special {
+  color: rgba(51, 51, 51, 0.6);
+
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 160%;
+}
+/* 이미지 박스 */
+.video-slider__image-box {
+  width: 264.75px;
+  height: 353px;
+  border-radius: 10px;
+
+  /* 비활성 상태 */
+  filter: blur(2px) grayscale(50%) brightness(0.8);
+  opacity: 0.6;
+  transform: scale(0.8);
+  transition:
+    transform 0.5s ease,
+    filter 0.5s ease,
+    opacity 0.5s ease;
+  will-change: transform;
+  overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
+}
+.video-slider__image-box img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+/* 텍스트 박스  */
+.video-slider__info-box {
+  position: relative;
+  width: 100%;
+  margin-top: 20px; /* 이미지와의 간격 */
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  row-gap: 5px;
+
+  opacity: 0; /* 기본적으로 숨김 (활성화된 것만 보여줌) */
+  text-align: center;
+
+  /* 애니메이션 */
+  transform: translateY(10px); /* 살짝 아래에 있다가 올라오는 효과 */
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s ease;
+}
+
+/* 제목 스타일 */
+.video-slider__info-title {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.3;
+  color: #333333;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 날짜/설명 스타일 */
+.video-slider__info-text {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.3;
+  color: #666666;
+}
+
+/* 활성화된(가운데) 슬라이드 효과*/
+.swiper-slide-active .video-slider__image-box {
+  filter: blur(0) grayscale(0%) brightness(1);
+  opacity: 1;
+  transform: scale(1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.swiper-slide-active .video-slider__info-box {
+  opacity: 1; /* 글자 보이기 */
+  transform: translateY(0); /* 제자리로 */
+}
