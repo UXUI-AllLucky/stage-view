@@ -8,6 +8,7 @@ export default [
         date: '2025.12.17~2026.3.2',
         review: 124,
         alt: 'bunkertrilogy',
+        category: 'musical',
     },
     {
         id: 2,
@@ -18,6 +19,7 @@ export default [
         date: '2025.12.6~2026.2.1',
         review: 54,
         alt: 'turkey_blues',
+        category: 'play',
     },
     {
         id: 3,
@@ -28,6 +30,7 @@ export default [
         date: '2026.1.13~3.8',
         review: 80,
         alt: 'repaper_les_vivants',
+        category: 'play',
     },
     {
         id: 4,
@@ -38,6 +41,7 @@ export default [
         date: '2015.11.12~',
         review: 24,
         alt: 'shear_madness',
+        category: 'play',
     },
     {
         id: 5,
@@ -48,6 +52,7 @@ export default [
         date: '2026.2.13~5.3',
         review: 80,
         alt: 'secreat_passage',
+        category: 'play',
     },
     {
         id: 6,
@@ -58,6 +63,7 @@ export default [
         date: '2025.11.22~2026.3.8',
         review: 442,
         alt: 'elephantsong',
+        category: 'play',
     },
     {
         id: 7,
@@ -68,6 +74,7 @@ export default [
         date: '2025.12.16~2026.2.22',
         review: 21,
         alt: 'then_and_today2',
+        category: 'play',
     },
     {
         id: 8,
@@ -78,6 +85,7 @@ export default [
         date: '2026.1.30~3.2',
         review: 54,
         alt: 'gloomy_day',
+        category: 'play',
     },
     {
         id: 9,
@@ -88,6 +96,7 @@ export default [
         date: '2014.9.11~',
         review: 35,
         alt: 'hangover',
+        category: 'play',
     },
     {
         id: 10,
@@ -98,5 +107,17 @@ export default [
         date: '2026.1.22~2.1',
         review: 11,
         alt: 'journeysend',
+        category: 'play',
     },
+    // {
+    //     id: 11,
+    //     title: '저니스 엔드',
+    //     place: '스튜디오 블루',
+    //     current: 'underway',
+    //     img: './images/journeysend.jpg',
+    //     date: '2026.1.22~2.1',
+    //     review: 11,
+    //     alt: 'journeysend',
+    //     category: 'play',
+    // },
 ];

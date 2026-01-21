@@ -1,9 +1,9 @@
 import './style.scss';
 
-const PlayContentList = ({ play }) => {
-    const { title, place, current, img, date, review, alt } = play;
+const MusicalContentList = ({ musical }) => {
+    const { title, place, current, img, date, review, alt } = musical;
     return (
-        <li className="palycontent">
+        <li className="musicalcontent">
             <img src={img} alt={alt} />
             <h6>{title}</h6>
             <p className="place">{place}</p>
@@ -16,4 +16,4 @@ const PlayContentList = ({ play }) => {
     );
 };
 
-export default PlayContentList;
+export default MusicalContentList;
