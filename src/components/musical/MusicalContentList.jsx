@@ -1,17 +1,37 @@
 import './style.scss';
+import { RiChatSmile3Line } from 'react-icons/ri';
+// import { RiChatSmile3Fill } from 'react-icons/ri';
+// import { FaFaceGrinHearts } from 'react-icons/fa6';
 
 const MusicalContentList = ({ musical }) => {
-    const { title, place, current, img, date, review, alt } = musical;
+    const { title, place, img, date, review, alt } = musical;
     return (
         <li className="musicalcontent">
-            <img src={img} alt={alt} />
-            <h6>{title}</h6>
+            <div className="img-wrap">
+                <img src={img} alt={alt} />
+            </div>
+
+            <div className="title-wrap">
+                <h6>
+                    {title}
+                    <span className="review-wrap">
+                        {/* ( */}
+                        <i className="review-i">
+                            <RiChatSmile3Line />
+                            {/* <RiChatSmile3Fill /> */}
+                            {/* <FaFaceGrinHearts /> */}
+                        </i>
+                        <span className="review"> {review} </span>
+                        {/* ) */}
+                    </span>
+                </h6>
+            </div>
+
             <p className="place">{place}</p>
             <span>
                 {date}
-                <p>후기 {review}</p>
+                {/* <p>후기 {review.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</p> */}
             </span>
-            <div className="hidden">{current}</div>
         </li>
     );
 };

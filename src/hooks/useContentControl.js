@@ -6,7 +6,12 @@ import filterMenuData from '../assets/api/filterMenu';
 // 매개변수로 사용할 데이터 (originalList)
 // 데이터 import는 데이터 사용하는 컴포넌트에서 improt할 것! 이번같은 경우엔 app.jsx에서 props로 내림
 const useContentControl = (originalList) => {
-    const [data, setData] = useState(originalList);
+    // 1. 초기값 설정 (새로고침 했을 때 딱 한 번 실행) // "처음엔 'underway'만 보여줌
+    const [data, setData] = useState(() => {
+        if (!originalList) return [];
+        return originalList.filter((work) => work.current === 'underway');
+    });
+
     const [stateMenu, setStateMenu] = useState(stateMenuData);
     const [sortMenu, setSortMenu] = useState(filterMenuData);
 
@@ -27,7 +32,7 @@ const useContentControl = (originalList) => {
         // 정렬 초기화 (전체보기로)
         setSortMenu(
             sortMenu.map((item) =>
-                item.type === 'all' ? { ...item, isClass: true } : { ...item, isClass: false }
+                item.current === current ? { ...item, isClass: true } : { ...item, isClass: false }
             )
         );
     };
@@ -56,7 +61,7 @@ const useContentControl = (originalList) => {
 
     // 컴포넌트에서 사용할 변수와 함수들을 리턴
     return {
-        data, // 화면에 뿌려줄 데이터 (playwork 역할) const data =  useContentControl( )
+        data, // 화면에 뿌려줄 데이터(data) // const data =  useContentControl( )
         stateMenu, // 필터 메뉴 상태
         sortMenu, // 정렬 메뉴 상태
         onShow, // 필터 함수

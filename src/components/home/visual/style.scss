@@ -1,63 +1,57 @@
 #visual {
-  height: 1000px;
-  margin: 40px 147px;
+    height: 600px;
+    margin: 60px 147px;
 }
 .main_visual {
-  display: flex;
-  justify-content: center;
-  gap: 320px;
-  width: 100%;
-  max-width: 1454px;
-  margin: 0 auto;
-  flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+    gap: 320px;
+    width: 100%;
+    max-width: 1454px;
+    margin: 0 auto;
+    flex-wrap: wrap;
 }
 
 .main_visual .inner {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 
 .video-slider {
-  margin-top: 25px;
-  height: 460px;
-  width: 567px;
-  max-width: 567px;
-  overflow: hidden;
-  touch-action: pan-x;
-  user-select: none;
+    margin-top: 25px;
+    height: 460px;
+    width: 567px;
+    max-width: 567px;
+    overflow: hidden;
+    touch-action: pan-x;
+    user-select: none;
 
-  /* [변경 중요] 기존 margin-left: auto; margin-right: auto; 제거 */
-  /* 부모(.slider-row)가 정렬을 담당하므로 여기서는 제거하거나 0으로 둡니다 */
-  margin-left: 0;
-  margin-right: 0;
+    /* [변경 중요] 기존 margin-left: auto; margin-right: auto; 제거 */
+    /* 부모(.slider-row)가 정렬을 담당하므로 여기서는 제거하거나 0으로 둡니다 */
+    margin-left: 0;
+    margin-right: 0;
 
-  -webkit-mask-image: linear-gradient(
-    to right,
-    transparent 0%,
-    black 5%,
-    black 95%,
-    transparent 100%
-  );
-  mask-image: linear-gradient(
-    to right,
-    transparent 0%,
-    black 5%,
-    black 95%,
-    transparent 100%
-  );
+    -webkit-mask-image: linear-gradient(
+        to right,
+        transparent 0%,
+        black 5%,
+        black 95%,
+        transparent 100%
+    );
+    mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
 }
 
-/* [반응형 추가] 화면이 좁아져서 슬라이더 2개가 꽉 찰 때 */
-@media screen and (max-width: 1200px) {
-  .slider-row {
-    justify-content: center;
-  }
-}
+// /* [반응형 추가] 화면이 좁아져서 슬라이더 2개가 꽉 찰 때 */
+// @media screen and (max-width: 1200px) {
+//     .slider-row {
+//         justify-content: center;
+//     }
+// }
 
-/* 모바일 등 좁은 화면에서는 다시 하나씩 보이게 처리 */
-@media screen and (max-width: 1150px) {
-  .video-slider {
-    margin-left: auto; /* 다시 가운데 정렬 */
-    margin-right: auto;
-  }
-}
+// /* 모바일 등 좁은 화면에서는 다시 하나씩 보이게 처리 */
+// @media screen and (max-width: 1150px) {
+//     .video-slider {
+//         margin-left: auto; /* 다시 가운데 정렬 */
+//         margin-right: auto;
+//     }
+// }

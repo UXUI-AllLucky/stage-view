@@ -1,124 +1,125 @@
 #header {
-  width: 100%;
+    width: 100%;
 }
 
 #header .inner {
-  width: 1752px;
-  height: 62px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+    width: 1752px;
+    height: 62px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
 }
 #header .inner .logo {
-  justify-content: start;
-  margin-right: 46px;
+    justify-content: start;
+    margin-right: 46px;
 }
 #header .inner .logo img {
-  height: 48px;
+    height: 48px;
+}
+#header .inner .nav {
+    position: absolute; /* Flex 흐름에서 빠져나와 독자적 위치 가짐 */
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 #header .inner .nav .gnb {
-  width: 266px;
-  display: flex;
-  gap: 32px;
+    display: flex;
+    gap: 32px;
 }
 #header .inner .nav .gnb li {
-  color: #333333;
-  text-align: center;
-  font-size: 18px;
-  font-weight: 700;
-  width: 117px;
-  text-align: center;
+    color: #333333;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 500;
+    width: 117px;
+    text-align: center;
 }
-#header .inner .nav .gnb .playmenu {
-  padding-left: 32px;
-}
-#header .inner .nav a {
-  font-size: 16px;
-  font-weight: 500;
+#header .inner .nav .gnb li:last-child {
+    transform: translateX(-16px);
 }
 .infolist {
-  display: flex;
-  gap: 14px;
+    display: flex;
+    gap: 14px;
 }
 .infolist li a {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
 }
 /* --- 검색 모달 오버레이 --- */
 .search-modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.75);
-  z-index: 9999; // 헤더보다 위에 뜨도록
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  backdrop-filter: blur(16px);
-
-  .search-modal-content {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    max-width: 600px;
-    text-align: center;
-    position: relative;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.75);
+    z-index: 9999; // 헤더보다 위에 뜨도록
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(16px);
 
-    .close-btn {
-      position: absolute;
-      top: -40px;
-      right: -60px;
-      background: none;
-      border: none;
-      cursor: pointer;
-      transition: 0.3s;
-      &:hover {
-        transform: rotate(90deg);
-      }
-    }
+    .search-modal-content {
+        width: 100%;
+        max-width: 600px;
+        text-align: center;
+        position: relative;
 
-    /* --- 기존 SearchForm 재사용 시 스타일 덮어쓰기 --- */
-    /* SearchForm 내부 클래스인 .form을 타겟팅합니다 */
-    .form {
-      p {
-        border-bottom: 2px solid #fff;
-        display: flex;
-
-        input {
-          width: 100%;
-          background: none;
-          border: none;
-          color: #fff;
-          font-size: 20px;
-          font-weight: 400;
-
-          outline: none;
-          &::placeholder {
-            color: #fff;
-            font-weight: 300;
-          }
+        .close-btn {
+            position: absolute;
+            top: -40px;
+            right: -60px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+            &:hover {
+                transform: rotate(90deg);
+            }
         }
 
-        button {
-          background: none;
-          color: #fff;
-          font-size: 22px;
-          padding: 10px;
-          transform: translateY(-8px);
-          font-weight: 600;
-          border: none;
-          cursor: pointer;
-          transition: 0.3s;
+        /* --- 기존 SearchForm 재사용 시 스타일 덮어쓰기 --- */
+        /* SearchForm 내부 클래스인 .form을 타겟팅합니다 */
+        .form {
+            p {
+                border-bottom: 2px solid #fff;
+                display: flex;
 
-          &:hover {
-            color: #ff6b6b;
-          }
+                input {
+                    width: 100%;
+                    background: none;
+                    border: none;
+                    color: #fff;
+                    font-size: 20px;
+                    font-weight: 400;
+
+                    outline: none;
+                    &::placeholder {
+                        color: #fff;
+                        font-weight: 300;
+                    }
+                }
+
+                button {
+                    background: none;
+                    color: #fff;
+                    font-size: 22px;
+                    padding: 10px;
+                    transform: translateY(-8px);
+                    font-weight: 600;
+                    border: none;
+                    cursor: pointer;
+                    transition: 0.3s;
+
+                    &:hover {
+                        color: #ff6b6b;
+                    }
+                }
+            }
         }
-      }
     }
-  }
 }

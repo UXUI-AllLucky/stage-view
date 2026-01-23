@@ -1,8 +1,9 @@
 import FilterStateList from '../../components/common/filterStateList/FilterStateList';
 import FilterMenuList from '../../components/common/filterMenuList/FilterMenuList';
 
+import Pagenation from '../../components/common/pagenation/Pagenation';
+import usePagenation from '../../hooks/usePagenation';
 import useContentControl from '../../hooks/useContentControl';
-
 import './style.scss';
 import MusicalContent from '../../components/musical/MusicalContent';
 
@@ -12,15 +13,17 @@ const Musical = ({ WorkData }) => {
     const musicalListData = WorkData.filter((item) => item.category === 'musical');
 
     // 2. 훅에는 전체 데이터(WorkData)가 아니라, 걸러낸 데이터(musicalListData)를 줍니다.
-    // Hook
-    // hook에 적용하는 data이름 musicalList로 변경함
     const {
-        data: musicalList,
+        data: musicalList, // hook에 적용하는 data -> musicalList로 이름변경함
         stateMenu,
         sortMenu,
         onShow,
         onSort,
     } = useContentControl(musicalListData); // 훅에게 걸러낸 데이터(musicalListData)를 던져줍니다.
+
+    // 3. 페이지네이션 훅 (필터링된 데이터 -> 현재 페이지 데이터)
+    const { currentData, currentPage, totalPage, setCurrentPage } = usePagenation(musicalList, 10);
+    // musicalList로->currentData에 담음
 
     return (
         <div className="musical-inner">
@@ -31,8 +34,14 @@ const Musical = ({ WorkData }) => {
             {/* Hook에서 받은 변수와 함수를 그대로 넣어줍니다 */}
             <FilterStateList state={stateMenu} onShow={onShow} />
             <FilterMenuList menu={sortMenu} onSort={onSort} />
-            {/*  musicalwork={musicalList} 로 변경 */}
-            <MusicalContent musicalwork={musicalList} />
+            {/* 4. PlayContent에는 전체(musicalList)가 아니라 현재 페이지 데이터(currentData)를 줍니다 */}
+            <MusicalContent musicalwork={currentData} />
+
+            <Pagenation
+                totalPage={totalPage}
+                currentPage={currentPage}
+                setCurrentPage={setCurrentPage}
+            />
         </div>
     );
 };

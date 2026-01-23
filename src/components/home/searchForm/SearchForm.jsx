@@ -1,49 +1,50 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { BiSearch } from 'react-icons/bi'; // 아이콘
 import './style.scss';
 
 const SearchForm = ({ onClose }) => {
-  const [text, setText] = useState('');
-  const navigate = useNavigate();
+    const [text, setText] = useState('');
+    const navigate = useNavigate();
 
-  const onSubmit = (e) => {
-    e.preventDefault();
+    const changeInput = (e) => {
+        setText(e.target.value);
+    };
 
-    if (!text.trim()) {
-      alert('검색어를 입력해주세요!');
-      return;
-    }
+    const onSubmit = (e) => {
+        e.preventDefault(); // 새로고침 방지
 
-    // App.jsx의 Route path="/searchpage" 와 일치시킴
-    // 쿼리 파라미터 이름은 'q'로 통일 (예: /searchpage?q=벙커)
-    navigate(`/searchpage?q=${text}`);
+        if (!text.trim()) {
+            alert('검색어를 입력해주세요!');
+            return;
+        }
 
-    // 검색 후 input창 초기화
-    setText('');
+        // 검색 페이지로 이동
+        navigate(`/searchpage?q=${text}`);
+        setText('');
 
-    // 만약 부모(모달)에서 닫기 기능을 줬다면 실행해라!
-    if (onClose) onClose();
-  };
+        // (선택사항) 모달 닫기
+        if (onClose) onClose();
+    };
 
-  const changeInput = (e) => {
-    const { value } = e.target;
-    setText(value);
-  };
+    return (
+        /* div 대신 form 태그에 input1 클래스를 줍니다. */
+        <form className="input1" onSubmit={onSubmit}>
+            <input
+                type="text"
+                placeholder="작품, 극장, 배우를 입력해보세요"
+                value={text}
+                onChange={changeInput}
+                /* 자동완성 배경색 문제 방지용 */
+                autoComplete="off"
+            />
 
-  return (
-    <form className="form" onSubmit={onSubmit}>
-      <p>
-        <input
-          type="text"
-          name="text"
-          placeholder="작품, 극장, 배우를 입력해보세요"
-          value={text}
-          onChange={changeInput}
-        />
-        <button type="submit">검색</button>
-      </p>
-    </form>
-  );
+            {/* 검색 버튼: absolute로 오른쪽 끝에 배치 */}
+            <button type="submit" className="search-btn">
+                <BiSearch />
+            </button>
+        </form>
+    );
 };
 
 export default SearchForm;

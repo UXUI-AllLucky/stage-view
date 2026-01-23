@@ -12,7 +12,7 @@ const App = () => {
             <div id="wrap">
                 <Routes>
                     <Route path="/" element={<Layout work={work} />}>
-                        <Route index element={<Home />} />
+                        <Route index element={<Home WorkData={WorkData} />} />
                         <Route path="/play" element={<Play WorkData={WorkData} />} />
                         <Route path="/musical" element={<Musical WorkData={WorkData} />} />
                         {/* 검색 결과 페이지 */}
