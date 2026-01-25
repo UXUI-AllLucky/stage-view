@@ -1,112 +1,112 @@
 .musicallist {
-    width: 1440px;
-    margin-top: 68px;
-    /* 2. 핵심 레이아웃: Grid */
-    display: grid;
-    /* 1fr을 5번 반복 = 정확히 5등분 */
-    grid-template-columns: repeat(5, 1fr);
-    /* 3. 패딩 및 간격 */
-    padding: 0 17px;
-    box-sizing: border-box;
-    gap: 60px; /* 아이템 사이 최소 간격 (원하는 대로 조절 가능) */
-    /* 4. 아이템 정렬 (중요 ⭐) : Grid 칸 안에서 li를 가운데 정렬하여 '남은 공간'을 여백으로 만듦 */
-    justify-items: center;
+  width: 1440px;
+  margin-top: 68px;
+  /* 2. 핵심 레이아웃: Grid */
+  display: grid;
+  /* 1fr을 5번 반복 = 정확히 5등분 */
+  grid-template-columns: repeat(5, 1fr);
+  /* 3. 패딩 및 간격 */
+  padding: 0 17px;
+  box-sizing: border-box;
+  gap: 60px; /* 아이템 사이 최소 간격 (원하는 대로 조절 가능) */
+  /* 4. 아이템 정렬 (중요 ⭐) : Grid 칸 안에서 li를 가운데 정렬하여 '남은 공간'을 여백으로 만듦 */
+  justify-items: center;
 
-    li {
-        width: 230px; /* li 자체의 너비를 이미지 크기에 맞추기 */
-        padding-bottom: 96px;
-        text-align: center;
-        &:hover {
-            /* = li:hover */
-            cursor: pointer;
-        }
-        .img-wrap {
-            width: 230px; /* 틀의 너비 고정 */
-            height: 290px; /* 필요하다면 높이도 고정하세요. */
-            border-radius: 6px; /* 둥근 모서리는 틀에 적용 */
-            margin-bottom: 16px; /* 마진도 틀에 적용 */
-            overflow: hidden;
-            /* 선택사항: 이미지 하단 미세한 공백 제거 */
-            display: flex;
-        }
-        img {
-            width: 230px;
-            height: 290px;
-            border: 1px solid none;
-            border-radius: 6px;
-            margin-bottom: 16px;
-            transform: scale(1);
-            transition: transform 0.4s ease;
-        }
-        &:hover img {
-            transform: scale(1.15);
-        }
-        .title-wrap {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        h6 {
-            display: block; /* 너비 전체 사용 */
-            text-align: center;
-            color: #333;
-            font-size: 23px;
-            font-weight: 600;
-            line-height: 140%;
-            letter-spacing: -0.48px;
-
-            .review-wrap {
-                /* 3. 리뷰 뭉치를 '글자'처럼 취급*/
-                display: inline-flex;
-                align-items: center;
-                transform: translateY(-2px);
-                white-space: nowrap; /* 리뷰 아이콘과 숫자가 찢어지지 않도록 설정 */
-                color: #333;
-                font-size: 17px;
-                font-weight: 500;
-                .review-i {
-                    color: #ff6b6b;
-                    font-size: 19px;
-                    transform: translateY(2px) scaleX(-1);
-                    margin: 0 2px 0 8px;
-                }
-                .review {
-                    color: #333;
-                    font-size: 17px;
-                    font-weight: 500;
-                    letter-spacing: -0.3px;
-                    line-height: 1.4;
-                }
-            }
-        }
-
-        h6 .place {
-            color: #888;
-            font-size: 15px;
-            font-weight: 400;
-            line-height: 120%;
-            letter-spacing: -0.221px;
-            margin-bottom: 10px;
-        }
-        span {
-            display: flex;
-            justify-content: center;
-            color: #888;
-            font-size: 15px;
-            font-weight: 400;
-            line-height: 150%;
-            letter-spacing: -0.15px;
-
-            p {
-                color: #333;
-                font-weight: 500;
-
-                &::before {
-                    content: '|';
-                    margin: 0 8px;
-                    color: #d2d2d2;
-                }
-            }
-        }
+  li {
+    width: 230px; /* li 자체의 너비를 이미지 크기에 맞추기 */
+    padding-bottom: 96px;
+    text-align: center;
+    &:hover {
+      /* = li:hover */
+      cursor: pointer;
     }
+    .img-wrap {
+      width: 230px; /* 틀의 너비 고정 */
+      height: 290px; /* 필요하다면 높이도 고정하세요. */
+      border-radius: 6px; /* 둥근 모서리는 틀에 적용 */
+      margin-bottom: 16px; /* 마진도 틀에 적용 */
+      overflow: hidden;
+      /* 선택사항: 이미지 하단 미세한 공백 제거 */
+      display: flex;
+    }
+    img {
+      width: 230px;
+      height: 290px;
+      border: 1px solid none;
+      border-radius: 6px;
+      margin-bottom: 16px;
+      transform: scale(1);
+      transition: transform 0.4s ease;
+    }
+    &:hover img {
+      transform: scale(1.15);
+    }
+    .title-wrap {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    h6 {
+      display: block; /* 너비 전체 사용 */
+      text-align: center;
+      color: #333;
+      font-size: 23px;
+      font-weight: 600;
+      line-height: 140%;
+      letter-spacing: -0.48px;
+
+      .review-wrap {
+        /* 3. 리뷰 뭉치를 '글자'처럼 취급*/
+        display: inline-flex;
+        align-items: center;
+        transform: translateY(-2px);
+        white-space: nowrap; /* 리뷰 아이콘과 숫자가 찢어지지 않도록 설정 */
+        color: #333;
+        font-size: 17px;
+        font-weight: 500;
+        .review-i {
+          color: rgb(247, 247, 10);
+          font-size: 19px;
+          transform: translateY(2px);
+          margin: 0 2px 0 8px;
+        }
+        .review {
+          color: #333;
+          font-size: 17px;
+          font-weight: 500;
+          letter-spacing: -0.3px;
+          line-height: 1.4;
+        }
+      }
+    }
+
+    h6 .place {
+      color: #888;
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 120%;
+      letter-spacing: -0.221px;
+      margin-bottom: 10px;
+    }
+    span {
+      display: flex;
+      justify-content: center;
+      color: #888;
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 150%;
+      letter-spacing: -0.15px;
+
+      p {
+        color: #333;
+        font-weight: 500;
+
+        &::before {
+          content: '|';
+          margin: 0 8px;
+          color: #d2d2d2;
+        }
+      }
+    }
+  }
 }

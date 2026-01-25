@@ -1,11 +1,13 @@
 /* 전체 공통부분만  */
 #wrap {
   width: 100%;
-  min-width: 1600px;
+  min-width: 1200px; /* 필요하다면 더 작은 값으로 */
+  position: relative;
 }
 .inner {
-  margin: 0 84px;
+  width: 100%; /* 추가: 부모 크기에 맞춤 */
+  max-width: 1752px;
+  margin: 0 auto;
   position: relative;
-  position: center;
   box-sizing: border-box;
 }

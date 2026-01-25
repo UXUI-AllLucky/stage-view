@@ -1,64 +1,150 @@
 .playlist {
-    width: 1440px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 44px;
-    margin-top: 72px;
-    padding: 0 17px;
+  width: 1440px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 44px;
+  margin-top: 72px;
+  padding: 0 17px;
 
-    li {
-        padding-bottom: 124px;
-        text-align: center;
-        li:hover {
-            cursor: pointer;
-        }
-        li:hover {
-            cursor: pointer;
-        }
-        img {
-            width: 246px;
-            border-radius: 6px;
-            margin-bottom: 10px;
-            transform: scale(1);
-            transition: transform 0.3s ease;
-        }
-        img:hover {
-            transform: scale(1.1);
-        }
-        h6 {
-            color: #333;
-            font-size: 24px;
-            font-weight: 600;
-            line-height: 140%;
-            letter-spacing: -0.48px;
-            margin-bottom: -1.5px;
-        }
-        .place {
-            color: #363636;
-            font-size: 17px;
-            font-weight: 400;
-            line-height: 160%;
-            letter-spacing: -0.221px;
-            margin-bottom: 10px;
-        }
-        span {
-            display: flex;
-            justify-content: center;
-            color: #888;
+  li {
+    width: 246px;
+    padding-bottom: 124px;
 
-            font-size: 16px;
-            font-weight: 400;
-            line-height: 150%;
-            letter-spacing: -0.15px;
-        }
-        span strong {
-            color: #333;
-            font-weight: 500;
-        }
-        span strong::before {
-            content: '|';
-            margin: 0 8px;
-            color: #d2d2d2;
-        }
+    /* 🔴 중요: li 자체에는 스타일을 최소화합니다. */
+    /* 기존에 li에 있던 정렬 속성들을 모두 a 태그로 넘깁니다. */
+
+    /* Link 컴포넌트 (= a 태그) 스타일 */
+
+    a {
+      /* ⭐ 핵심: a 태그를 Flex 박스로 만들어서 내부 요소를 세로 정렬 */
+      display: flex;
+      flex-direction: column;
+      align-items: center; /* 가로 중앙 정렬 */
+      text-align: center; /* 텍스트 중앙 정렬 */
+
+      width: 100%;
+      height: 100%;
+      text-decoration: none; // 밑줄 없애기
+      color: inherit; // 부모 글자색 상속 금지
     }
+    /* 호버 시 커서 변경 */
+    &:hover {
+      cursor: pointer;
+    }
+    .img-wrap {
+      width: 246px;
+      height: 328px;
+      border-radius: 6px;
+      margin-bottom: 14px;
+      overflow: hidden; /* ⭐ 중요: 이미지가 커질 때 박스를 넘어가지 않게 자르는 역할은 여기서! */
+      /* ✅ 기준점 설정: 배지가 이 박스를 기준으로 배치됨 */
+      position: relative;
+
+      img {
+        display: block; /* 이미지 하단 공백 제거 */
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* 이미지가 찌그러지지 않고 꽉 차게 */
+
+        transform: scale(1);
+        transition: transform 0.4s ease;
+      }
+      /* ✅ 리뷰 배지 스타일 (img-wrap 내부로 이동했으므로 여기 작성) */
+      .review-wrap {
+        position: absolute; /* 둥둥 띄우기 */
+        top: 10px; /* 위에서 10px */
+        left: 10px; /* 왼쪽에서 10px */
+        z-index: 10; /* 이미지보다 위에 */
+
+        display: flex;
+        align-items: center;
+        gap: 4px;
+
+        /* 배지 디자인 */
+        background-color: rgba(0, 0, 0, 0.7); /* 검은 반투명 */
+        padding: 4px 10px;
+        border-radius: 20px;
+
+        /* 글자 스타일 */
+        color: #fff;
+        font-weight: 600;
+        font-size: 13px;
+
+        .review-i {
+          color: #ffd700; /* 노란색 별 */
+          font-size: 14px;
+          transform: translateY(3px); /* 높이 미세 조정 */
+        }
+      }
+    }
+
+    /* 호버 시 이미지 확대 */
+    &:hover .img-wrap img {
+      transform: scale(1.15);
+    }
+    h6 {
+      color: #333;
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 140%;
+      letter-spacing: -0.48px;
+      margin-bottom: 1px;
+      width: 100%; /* 제목 줄바꿈 방지 */
+    }
+    .place {
+      color: #363636;
+      font-size: 17px;
+      font-weight: 400;
+      line-height: 160%;
+      letter-spacing: -0.221px;
+      margin-bottom: 6px;
+    }
+
+    .date {
+      color: #777;
+      font-size: 13px;
+      font-weight: 200;
+      letter-spacing: 0.2px;
+    }
+  }
 }
+// position: absolute;
+// top: 10px;
+// left: 10px;
+// z-index: 10; /* 이미지보다 위에 오도록 */
+
+// background-color: rgba(0, 0, 0, 0.7);
+// color: #fff;
+// display: flex;
+// align-items: center;
+// gap: 4px;
+// padding: 4px 10px;
+// border-radius: 20px;
+// font-size: 12px;
+// font-weight: 600;
+
+// .review-wrap {
+//   /* 3. 리뷰 뭉치를 '글자'처럼 취급*/
+//   display: inline-flex;
+//   align-items: center;
+//   color: #e50914;
+//   background-color: #fff0f0;
+//   font-size: 15px;
+//   font-weight: 500;
+//   margin-bottom: 10px;
+//   padding-right: 10px;
+//   box-sizing: border-box;
+
+//   .review-i {
+//     font-size: 16px;
+//     transform: translateY(3.5px);
+//     margin: 0 4px 0px 8px;
+//   }
+//   .review {
+//     font-weight: 500;
+//     letter-spacing: -0.3px;
+//     line-height: 1.4;
+//   }
+// }
+
+/* Link(a태그) 스타일 초기화 및 영역 채우기 */

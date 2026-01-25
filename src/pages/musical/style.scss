@@ -1,22 +1,30 @@
 .musical-inner {
-    height: 1770px;
-    width: 1440px;
-    margin: 0 auto;
+  /* 🔴 기존: height: 1770px; -> 너무 강제적인 높이입니다. */
+  /* 🟢 수정: 내용이 없더라도 최소 높이를 유지하고 싶다면 min-height 추천 */
+  min-height: 80vh; /* 화면 높이의 80% 정도는 확보 */
+  padding-bottom: 100px; /* 바닥 여백 */
+
+  /* 🔴 기존: width: 1440px; */
+  /* 🟢 수정: max-width를 쓰면 화면이 작아져도 잘리지 않습니다. */
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
 }
 h3 {
-    margin-top: 48px;
-    font-size: 48px;
-    font-weight: 600;
-    line-height: 120%;
-    letter-spacing: -0.96px;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    margin-bottom: 48px;
+  margin-top: 48px;
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.96px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  margin-bottom: 48px;
 }
 h3 span {
-    color: rgba(51, 51, 51, 0.7);
-    font-size: 24px;
-    font-weight: 400;
-    transform: translateY(-10px);
+  color: rgba(51, 51, 51, 0.7);
+  font-size: 24px;
+  font-weight: 400;
+  margin-top: 10px;
 }

@@ -1,6 +1,6 @@
 import './style.scss';
 
-const FilterMenuItem = ({ menu, onSort }) => {
+const FilterMenuList = ({ menu, onSort }) => {
   const { type, isClass, text } = menu;
 
   return (
@@ -14,4 +14,4 @@ const FilterMenuItem = ({ menu, onSort }) => {
   );
 };
 
-export default FilterMenuItem;
+export default FilterMenuList;

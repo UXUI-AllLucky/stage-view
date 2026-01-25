@@ -1,10 +1,19 @@
 .search-page {
   width: 1440px;
+  /* ⚠️ 만약 화면이 1440px보다 작아지면 잘릴 수 있으니, 
+     max-width: 100%; 도 같이 주는 것이 안전합니다. */
+  max-width: 100%;
+
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin: 48px 257px;
+
+  /* 🔴 기존 코드: margin: 48px 257px; 
+     왼쪽 여백을 257px로 강제해서 중앙이 틀어짐 
+  */
+  /* 🟢 수정 코드: 상하 48px, 좌우는 자동(auto)으로 중앙 정렬 */
+  margin: 48px auto;
 
   h2 {
     text-align: center;
@@ -49,6 +58,11 @@
     gap: 44px;
     margin-top: 72px;
     padding: 0 17px;
+    box-sizing: border-box;
+
+    /* 플렉스 아이템들이 왼쪽부터 시작하되, 전체 박스는 중앙에 */
+    margin-left: auto;
+    margin-right: auto;
 
     // PlayContentList 내부 스타일(.palycontent)은  PlayContentList 컴포넌트가 <li> CSS가 적용되므로
     // 여기서는 배치(width)만 신경 쓰면 됩니다.

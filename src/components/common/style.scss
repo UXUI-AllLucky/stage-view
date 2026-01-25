@@ -1,0 +1,80 @@
+/* 모달 배경 (어두운 막) */
+.search-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 9999; /* ⭐ 가장 중요: 모든 요소보다 위에 있어야 클릭 가능 */
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* 클릭용 배경 레이어 스타일 */
+  .bg {
+    position: absolute; /* 껍데기 기준으로 둥둥 띄움 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* 어두운 배경색은 여기에 */
+    cursor: pointer; /* 클릭 가능하다는 표시 */
+    z-index: 1; /* 컨텐츠보다는 뒤에 있어야 함 */
+  }
+
+  /* 닫기 버튼 위치 잡기 */
+  .close-btn {
+    color: #fff;
+    /* 화면 우측 상단 고정 */
+    /* absolute는 부모 기준이지만, fixed는 '화면(뷰포트)' 기준입니다. */
+    position: fixed;
+    top: 20px; /* 화면 위에서 50px 떨어짐 (원하는 만큼 조절) */
+    right: 20px; /* 화면 오른쪽에서 50px 떨어짐 (원하는 만큼 조절) */
+
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 30px; /* 버튼 크기도 조금 키웠습니다 */
+
+    /* 버튼이 가려지지 않도록 배경(1)보다 훨씬 위에 z-index 추가 */
+    z-index: 10001;
+
+    &:hover {
+      opacity: 0.8;
+      transition: 0.3s;
+    }
+  }
+}
+
+/* 모달 내용 박스 */
+.search-modal-content {
+  position: relative;
+  width: 100%;
+  max-width: 600px; /* 검색창 최대 너비 */
+  padding: 20px;
+  transform: translateY(-80px);
+
+  /*  배경보다 위에 올라오게 설정 */
+  z-index: 10; /* .bg(1) 보다 높아야 클릭했을 때 배경이 안 눌림 */
+
+  /* SearchForm 컴포넌트 스타일 덮어쓰기 (필요시) */
+  .input1 {
+    width: 100% !important; /* 모달 안에서는 꽉 차게 */
+    margin: 0 !important; /* 기존 마진 제거 */
+
+    input {
+      background: rgba(255, 255, 255, 0.85);
+      height: 60px;
+      font-size: 18px;
+      &::placeholder {
+        padding-bottom: 2px;
+      }
+    }
+    .search-btn {
+      color: #777;
+      font-size: 26px;
+    }
+  }
+}

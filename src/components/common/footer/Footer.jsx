@@ -5,7 +5,8 @@ const Footer = () => {
     <footer id="footer">
       <div className="inner">
         <div>
-          <img src="./images/stage_view_logo.svg" alt="stage view 로고" />
+          {/* 절대경로로 잡아야 상세페이지에서 헤더 푸터 로고 이미지 안깨짐 */}
+          <img src="/images/stage_view_logo.svg" alt="stage view 로고" />
           <ul className="footerMenu">
             <li>서비스 소개</li>
             <li>이용약관</li>

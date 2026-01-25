@@ -1,50 +1,39 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { BiSearch } from 'react-icons/bi'; // 아이콘
+import { IoIosSearch } from 'react-icons/io';
+import { useSearch } from '../../../context/SearchContext';
 import './style.scss';
 
+/**
+ * 검색 입력 폼 컴포넌트
+ * Home 페이지와 Header 모달에서 재사용됨
+ * @param {object} props
+ * @param {Function} [props.onClose] - 모달 내에서 사용 시, 검색 후 모달을 닫기 위한 함수
+ */
 const SearchForm = ({ onClose }) => {
-    const [text, setText] = useState('');
-    const navigate = useNavigate();
+  const { keyword, setKeyword, onSearch } = useSearch();
 
-    const changeInput = (e) => {
-        setText(e.target.value);
-    };
+  /**
+   * 폼 제출 핸들러 (엔터 키 or 버튼 클릭)
+   * @param {React.FormEvent} e
+   */
+  const handleSubmit = (e) => {
+    e.preventDefault(); //폼 제출시 새로고침 막기
+    onSearch(); // 검색기능. Context의 페이지 이동 로직 실행
+    if (onClose) onClose(); // 모달 닫기 (Header에서 사용 시)
+  };
 
-    const onSubmit = (e) => {
-        e.preventDefault(); // 새로고침 방지
-
-        if (!text.trim()) {
-            alert('검색어를 입력해주세요!');
-            return;
-        }
-
-        // 검색 페이지로 이동
-        navigate(`/searchpage?q=${text}`);
-        setText('');
-
-        // (선택사항) 모달 닫기
-        if (onClose) onClose();
-    };
-
-    return (
-        /* div 대신 form 태그에 input1 클래스를 줍니다. */
-        <form className="input1" onSubmit={onSubmit}>
-            <input
-                type="text"
-                placeholder="작품, 극장, 배우를 입력해보세요"
-                value={text}
-                onChange={changeInput}
-                /* 자동완성 배경색 문제 방지용 */
-                autoComplete="off"
-            />
-
-            {/* 검색 버튼: absolute로 오른쪽 끝에 배치 */}
-            <button type="submit" className="search-btn">
-                <BiSearch />
-            </button>
-        </form>
-    );
+  return (
+    <form className="input1" onSubmit={handleSubmit}>
+      <input
+        type="text"
+        placeholder="작품, 극장, 배우를 입력해보세요"
+        value={keyword}
+        onChange={(e) => setKeyword(e.target.value)}
+      />
+      <button type="submit" className="search-btn">
+        <IoIosSearch />
+      </button>
+    </form>
+  );
 };
 
 export default SearchForm;
