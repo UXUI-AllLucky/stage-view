@@ -1,0 +1,57 @@
+.play-info {
+  width: 100%;
+  max-width: 1158px;
+  margin: 72px auto;
+  display: flex;
+  align-content: center;
+  //   justify-content: center;
+  padding: 48px 0;
+  border-top: 1px solid #cecccc;
+  .play-img {
+    justify-content: flex-start;
+    width: 412px;
+    margin: 0 104px;
+  }
+  .play-info-list {
+    width: 100%;
+    li {
+      border-bottom: 1px solid #eeeeee;
+    }
+    .underway {
+      color: #b91c1c;
+      font-weight: 500;
+      line-height: 1.6;
+      letter-spacing: -0.15px;
+      font-size: 20px;
+      width: 80px;
+      border: 2px solid #b91c1c;
+      text-align: center;
+      border-radius: 30px;
+    }
+    .title {
+      font-size: 48px;
+      font-weight: 500;
+    }
+    .place {
+      font-size: 20px;
+      span {
+        font-size: 18px;
+        margin-right: 16px;
+      }
+    }
+    .date {
+      font-size: 20px;
+      span {
+        font-size: 18px;
+        margin-right: 16px;
+      }
+    }
+    .review {
+      font-size: 20px;
+      span {
+        font-size: 18px;
+        margin-right: 16px;
+      }
+    }
+  }
+}

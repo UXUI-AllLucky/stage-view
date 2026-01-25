@@ -1,4 +1,5 @@
 // useParams를 쓰면 URL에 있는 id값(예: 1, 2, 3)을 받아올 수 있습니다.
+import PlayInfo from '../../components/play/playDetail/PlayInfo';
 import React from 'react';
 import { useParams } from 'react-router-dom';
 
@@ -26,14 +27,12 @@ const PlayDetail = ({ work }) => {
 
   return (
     <div className="play-detail-page">
+      <h3>
+        연극<span>play</span>
+      </h3>
+
       {/* 이제 play 변수에 모든 정보가 있으니 마음껏 쓰세요! */}
-      <img className="play-img" src={play.img} alt={play.title} />
-      <p>{play.category}</p>
-      <h1>{play.title}</h1>
-      <p>{play.place}</p>
-      <p>{play.current}</p>
-      <p>{play.date}</p>
-      <p>{play.review}</p>
+      <PlayInfo play={play} />
 
       {/* ... */}
     </div>
