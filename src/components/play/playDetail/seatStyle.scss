@@ -1,0 +1,107 @@
+.seat-selection-container {
+    background-color: #000;
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    box-sizing: border-box;
+
+    .stage-screen {
+        width: 80%;
+        max-width: 800px;
+        height: 40px;
+        background: linear-gradient(to bottom, #444, #222);
+        margin-bottom: 50px;
+        border-radius: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: bold;
+        letter-spacing: 2px;
+        box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+        color: #aaa;
+    }
+
+    .seat-map {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+
+        .seat-row {
+            display: flex;
+            align-items: center;
+
+            .row-label {
+                font-size: 14px;
+                font-weight: bold;
+                width: 40px;
+                text-align: right;
+                margin-right: 15px;
+                color: #ccc;
+            }
+
+            .seats {
+                display: flex;
+                gap: 6px;
+
+                /* 통로 (빈 공간) 스타일 */
+                .seat-gap {
+                    width: 32px;
+                    height: 32px;
+                    flex-shrink: 0;
+                }
+
+                /* 좌석 버튼 스타일 */
+                .seat-item {
+                    width: 32px;
+                    height: 32px;
+                    background-color: transparent;
+                    border: 1px solid rgba(255, 255, 255, 0.7);
+                    color: #fff;
+                    font-size: 13px;
+                    font-weight: 500;
+                    border-radius: 4px;
+                    cursor: pointer;
+                    padding: 0;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    transition: all 0.2s ease;
+                    flex-shrink: 0;
+
+                    &:hover {
+                        background-color: rgba(255, 255, 255, 0.15);
+                        border-color: #fff;
+                    }
+
+                    /* 선택된 좌석 스타일 (붉은색) */
+                    &.selected {
+                        background-color: #d32f2f;
+                        border-color: #d32f2f;
+                        color: #fff;
+                        font-weight: bold;
+                        box-shadow: 0 0 5px rgba(211, 47, 47, 0.5);
+                    }
+                }
+            }
+        }
+    }
+
+    .selected-seats-info {
+        margin-top: 30px;
+        font-size: 16px;
+        color: #ffd700;
+        font-weight: bold;
+    }
+}
+
+@media (max-width: 768px) {
+    .seat-map {
+        overflow-x: auto;
+        padding-bottom: 10px;
+        width: 100%;
+        align-items: flex-start;
+    }
+}

@@ -1,10 +1,11 @@
 import React from 'react';
 import './style.scss';
 import stateInfo from '../../../assets/api/stateMenu';
-import { actorData } from '../../../assets/data/actorData';
+import { actorData } from '../../../assets/data/allActors';
+import { FaStar } from 'react-icons/fa6';
 
 const PlayInfo = ({ play }) => {
-    const { id, img, title, place, current, date, review, category } = play;
+    const { id, img, title, place, current, date, review, category, cast } = play;
 
     // 2. 전체 메뉴 데이터 중에서 내 current('underway')와 같은 것을 찾습니다.
     const stateItem = stateInfo.find((item) => item.current === current);
@@ -26,10 +27,14 @@ const PlayInfo = ({ play }) => {
                     <span>공연기간</span> {date}
                 </li>
                 <li className="review">
-                    <span>관람후기</span> {review}
+                    <span>관람후기</span>
+                    <i className="review-i">
+                        <FaStar />
+                    </i>
+                    {review}개
                 </li>
                 <li className="actor">
-                    <span>출연</span>
+                    <span className="cast">출연</span>
                     {/* cast 배열이 있을 때만 실행 */}
                     {play.cast && (
                         <ul className="cast-list">
@@ -40,7 +45,6 @@ const PlayInfo = ({ play }) => {
                                 // 만약 등록된 사진이 없으면 기본 이미지(default.png) 보여주기
                                 const actorImg =
                                     actorData[name] || '/images/actors/default_profile.png';
-
                                 return (
                                     <li key={index} className="actor-item">
                                         <div className="img-box">
