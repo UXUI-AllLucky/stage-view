@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './seatStyle.scss';
 
-// props로 mapData(좌석배열)와 title(공연장 이름)을 받습니다.
-const SeatData = ({ mapData, title }) => {
+// props로 mapData(좌석배열)와 title(공연장 이름), onSeatClick(부모에게 알림)을 받습니다.
+const SeatData = ({ mapData, title, onSeatClick }) => {
     const [selectedSeats, setSelectedSeats] = useState([]);
 
     // mapData가 바뀔 때마다(다른 공연장 클릭 시) 선택 초기화
@@ -14,12 +14,17 @@ const SeatData = ({ mapData, title }) => {
     if (!mapData) return <div>좌석 정보를 불러오는 중...</div>;
 
     const handleSeatClick = (rowIndex, seatNum) => {
-        /* ... 기존 로직 동일 ... */
         const seatId = `${rowIndex + 1}-${seatNum}`;
-        if (selectedSeats.includes(seatId)) {
-            setSelectedSeats(selectedSeats.filter((id) => id !== seatId));
+        const isSelected = selectedSeats.includes(seatId);
+
+        if (isSelected) {
+            // 이미 선택된 좌석 클릭 시 해제
+            setSelectedSeats([]);
+            if (onSeatClick) onSeatClick(null);
         } else {
-            setSelectedSeats([...selectedSeats, seatId]);
+            // 다른 좌석 클릭 시: 기존 것 날리고 현재 좌석만 선택 (중복 클릭 방지)
+            setSelectedSeats([seatId]);
+            if (onSeatClick) onSeatClick(seatId);
         }
     };
 

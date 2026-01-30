@@ -1,0 +1,215 @@
+/* Layout Container for Seat Map + Review */
+.seat-view-container {
+    display: flex;
+    width: 100%;
+    /* Fixed height to match review and provide consistent layout */
+    height: 1000px;
+    margin-bottom: 50px;
+    /* Leave 50px space from footer */
+    overflow: hidden;
+    /* Shared Background */
+    background-color: #000 !important;
+    /* Smooth height/width transitions */
+    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    border-radius: 8px;
+
+    gap: 0;
+}
+
+/* 1. Seat Map Section */
+.seat-map-section {
+    flex: 1;
+    /* Takes full width by default */
+    /* Faster speed for Returning to Full Width (Closing) */
+    transition: flex 0.2s ease-out, max-width 0.2s ease-out;
+    min-width: 0;
+    /* Prevents overflow issues in flex items */
+}
+
+/* 2. Review Section (Hidden by Default) */
+.review-section {
+    width: 0;
+    opacity: 0;
+    transform: translateX(100px);
+    /* Faster speed for Disappearing (Closing) */
+    transition: all 0.2s ease-out;
+    overflow: hidden;
+    position: relative;
+    z-index: 50;
+    /* Ensure it is above or distinct if they overlap, though Flexbox doesn't overlap by default. If user meant visual prominence, this helps if any transforms overlap. */
+
+    /* Optional: Sticky positioning if container is tall */
+    // position: sticky;
+    // top: 20px;
+}
+
+
+/* 3. Close Button Styling */
+/* 3. Close Button Styling - Absolute to Review Container */
+
+/* --- ACTIVE STATE (.mode-review) --- */
+.seat-view-container.mode-review {
+    gap: 0;
+    /* Gap removed to fix white line issue */
+
+    .seat-map-section {
+        flex: 0 0 65%;
+        /* Shrink seat map */
+        max-width: 65%;
+        /* Keep original speed for Shrinking (Opening) */
+        transition: flex 0.5s cubic-bezier(0.25, 1, 0.5, 1), max-width 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    .review-section {
+        width: 35%;
+        /* Expand review panel */
+        opacity: 1;
+        transform: translateX(0);
+        /* Keep original speed for Appearing (Opening) */
+        transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+}
+
+
+/* --- REVIEW COMPONENT STYLING --- */
+.review-container {
+    width: 100%;
+    height: 100%;
+    /* Fixed height or responsive */
+    background-color: #1a1a1a;
+    /* Fixed height or responsive */
+    background-color: #1a1a1a;
+    /* border: 1px solid #333; Removed as user sees it as white/visible */
+    border-radius: 12px;
+    // background-color: transparent !important;
+    color: #eee;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    position: relative;
+    /* For close button positioning */
+
+    /* Header */
+    .review-header {
+        width: 100%;
+        padding: 20px 24px;
+        background-color: #000;
+        width: 100%;
+        padding: 20px 24px;
+        background-color: #222;
+        /* border-bottom: 1px solid #333; Removed */
+        box-sizing: border-box;
+        box-sizing: border-box;
+
+        /* display: flex; Removed to allow absolute button to sit independently */
+        /* justify-content: space-between; */
+        position: relative;
+        /* Just in case */
+
+        h2 {
+            display: inline-block;
+            margin: 0;
+            font-size: 20px;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .close-review-btn {
+            color: #999;
+            font-size: 24px;
+            display: inline-block;
+            transform: translateX(48%);
+            top: 15%;
+            right: 20px;
+
+            cursor: pointer;
+            z-index: 200;
+            /* Ensure it's on top of everything */
+            transition: color 0.2s;
+            padding: 0;
+
+            &:hover {
+                color: #fff;
+            }
+        }
+
+
+
+
+
+    }
+
+
+
+    /* List Area */
+    .review-list {
+        flex: 1;
+        width: 100%;
+        padding: 20px;
+        box-sizing: border-box;
+        overflow-y: auto;
+
+        /* Custom Scrollbar */
+        &::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: #444;
+            border-radius: 3px;
+        }
+
+        &::-webkit-scrollbar-track {
+            background-color: transparent;
+        }
+
+        /* Empty State */
+        .no-reviews {
+            text-align: center;
+            color: #666;
+            margin-top: 50px;
+            font-size: 14px;
+        }
+    }
+
+    /* Individual Review Item */
+    .review-item {
+        background-color: #262626;
+        border-radius: 8px;
+        padding: 16px;
+        margin-bottom: 16px;
+        transition: transform 0.2s, background-color 0.2s;
+        border: 1px solid transparent;
+
+        &:hover {
+            background-color: #2a2a2a;
+            border-color: #444;
+            transform: translateY(-2px);
+        }
+
+        /* Item Header (Author/Date) */
+        .review-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            font-size: 13px;
+
+            .review-date {
+                font-weight: 600;
+                color: #ddd;
+            }
+
+
+        }
+
+        /* Review Content */
+        .review-content {
+            font-size: 14px;
+            line-height: 1.5;
+            color: #ccc;
+            word-break: keep-all;
+        }
+    }
+}

@@ -1,62 +1,76 @@
 .play-info {
     width: 100%;
-    max-width: 1158px;
+    max-width: 1752px;
     margin: 72px auto;
     display: flex;
     align-content: center;
-    //   justify-content: center;
-    padding: 48px 0;
+    gap: 120px;
+    padding: 72px 0;
+    box-sizing: border-box;
     border-top: 1px solid #cecccc;
+
     .play-img {
         justify-content: flex-start;
-        width: 412px;
-        height: 549px;
-        margin: 0 104px;
+        width: 480px;
+        height: 640px;
+        margin-left: 240px;
+
     }
+
     .play-info-list {
         width: 100%;
 
         li {
             padding: 4px 0;
             box-sizing: border-box;
-            border-bottom: 1px solid #eeeeee;
+            // border-bottom: 1px solid #eeeeee;
         }
+
         .underway {
             color: #b91c1c;
             font-weight: 500;
             line-height: 1.6;
             letter-spacing: -0.15px;
             font-size: 20px;
-            width: 80px;
+            padding: 3px;
+            width: 90px;
             border: 2px solid #b91c1c;
             text-align: center;
             border-radius: 30px;
         }
+
         .title {
             font-size: 48px;
             font-weight: 500;
         }
+
         .place {
             font-size: 20px;
+
             span {
                 margin-right: 16px;
             }
         }
+
         .date {
             font-size: 20px;
+
             span {
                 margin-right: 16px;
             }
         }
+
         .review {
             font-size: 20px;
             /* 1. 부모: 전체를 가로로 눕히고 중앙 정렬 */
             display: flex;
             align-items: center;
             gap: 4px;
+
             span {
                 margin-right: 16px;
             }
+
             .review-i {
                 color: rgb(240, 240, 5);
                 /* 2. 아이콘 박스: 이 안에서도 SVG를 정중앙에 놓음 */
@@ -64,31 +78,37 @@
                 align-items: center;
             }
         }
+
         .actor {
-            margin-top: 8px;
-            display: flex;
+            // margin-top: 12px;
+            // display: flex;
 
             .cast {
                 font-size: 20px;
 
-                /* 1. 너비는 글자만큼만 차지 */
-                width: fit-content;
+                // /* 1. 너비는 글자만큼만 차지 */
+                // width: fit-content;
 
-                /* ⭐ 2. 핵심: 사진들이 16px 안쪽으로 못 들어오게 밀어내기 */
-                margin-right: 16px;
+                // /* ⭐ 2. 핵심: 사진들이 16px 안쪽으로 못 들어오게 밀어내기 */
+                // margin-right: 30px;
 
-                /* 3. 혹시라도 공간 좁아지면 줄바꿈 되는 참사 방지 */
-                white-space: nowrap;
+
+                // /* 3. 혹시라도 공간 좁아지면 줄바꿈 되는 참사 방지 */
+                // white-space: nowrap;
             }
+
             .cast-list {
                 display: flex;
                 flex-wrap: wrap;
-                gap: 24px;
+                gap: 22px 26px;
+                margin-top: 8px;
 
                 /* 2. 모바일(768px 이하)일 때 간격 줄이기 */
                 @media (max-width: 768px) {
-                    gap: 15px; /* 좁은 화면에서는 간격도 좁게 */
-                    justify-content: center; /* 모바일에서는 가운데 정렬이 더 예쁨 */
+                    gap: 15px;
+                    /* 좁은 화면에서는 간격도 좁게 */
+                    justify-content: center;
+                    /* 모바일에서는 가운데 정렬이 더 예쁨 */
                 }
 
                 .actor-item {
@@ -96,6 +116,7 @@
                     flex-direction: column;
                     align-items: center;
                     border-bottom: none;
+
                     .img-box {
                         /* 3. 기본(PC) 이미지 크기 */
                         width: 110px;
@@ -108,15 +129,19 @@
 
                         /* 4. 모바일(768px 이하) 이미지 크기 조정 */
                         @media (max-width: 768px) {
-                            width: 70px; /* 모바일에서는 좀 작게 */
+                            width: 70px;
+                            /* 모바일에서는 좀 작게 */
                             height: 70px;
-                            margin-bottom: 5px; /* 사진과 이름 사이 간격도 줄임 */
+                            margin-bottom: 5px;
+                            /* 사진과 이름 사이 간격도 줄임 */
                         }
                     }
+
                     img {
                         width: 100%;
                         height: 100%;
-                        object-fit: cover; /* 필수: 찌그러짐 방지 */
+                        object-fit: cover;
+                        /* 필수: 찌그러짐 방지 */
                         display: block;
 
                         /* 부드럽고 넓게 퍼지는 그림자 */
@@ -133,7 +158,7 @@
                     }
 
                     .name {
-                        font-size: 16px;
+                        font-size: 17px;
                     }
                 }
             }

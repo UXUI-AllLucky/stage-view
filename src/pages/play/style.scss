@@ -1,8 +1,10 @@
 .play-inner {
     /* 🔴 기존: height: 1770px; -> 너무 강제적인 높이입니다. */
     /* 🟢 수정: 내용이 없더라도 최소 높이를 유지하고 싶다면 min-height 추천 */
-    min-height: 80vh; /* 화면 높이의 80% 정도는 확보 */
-    padding-bottom: 100px; /* 바닥 여백 */
+    min-height: 80vh;
+    /* 화면 높이의 80% 정도는 확보 */
+    padding-bottom: 100px;
+    /* 바닥 여백 */
 
     /* 🔴 기존: width: 1440px; */
     /* 🟢 수정: max-width를 쓰면 화면이 작아져도 잘리지 않습니다. */
@@ -10,6 +12,7 @@
     max-width: 1440px;
     margin: 0 auto;
 }
+
 h3 {
     margin-top: 48px;
     font-size: 48px;
@@ -22,18 +25,86 @@ h3 {
     align-items: center;
     margin-bottom: 48px;
 }
+
 h3 span {
     color: rgba(51, 51, 51, 0.7);
     font-size: 24px;
     font-weight: 400;
     margin-top: 10px;
 }
+
 .play-detail-page {
     width: 100%;
+
     .play-img {
         width: 256px;
     }
 }
+
 // .placeBtn {
 //     display: flex;
 // }
+
+/* 슬라이딩 리뷰 패널 스타일 */
+.seat-view-container {
+    display: flex;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    /* 넘치는 요소 숨김 (처음 Review 숨기기 위함) */
+    transition: all 0.5s ease;
+    /* 부드러운 전환 */
+}
+
+/* 좌석 맵 영역 */
+.seat-map-section {
+    width: 100%;
+    transition: width 0.5s ease, margin 0.5s ease;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    /* 내부 내용 중앙 정렬 */
+}
+
+/* 리뷰 영역 */
+.review-section {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 400px;
+    /* 패널 너비 */
+    height: 100vh;
+    // border-left: 1px solid #eee;
+    transform: translateX(100%);
+    /* 처음에 오른쪽 화면 밖으로 밀어둠 */
+    transition: transform 0.5s ease;
+    z-index: 10;
+
+    /* 닫기 버튼 위치 */
+    .close-review-btn {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        /* 왼쪽 상단에 배치 */
+        z-index: 20;
+        background: none;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+        color: #333;
+    }
+}
+
+/* 리뷰 모드 활성화 시 스타일 */
+/* .seat-view-container.mode-review { ... } */
+
+.seat-view-container.mode-review .seat-map-section {
+    /* 좌석 영역 너비를 줄여서 왼쪽으로 밀리는 효과 */
+    width: calc(100% - 400px);
+    /* 만약 너비 변경이 아니라 그냥 밀고 싶다면 margin-right 등을 조정 */
+}
+
+.seat-view-container.mode-review .review-section {
+    /* 리뷰 패널 등장 */
+    transform: translateX(0);
+}

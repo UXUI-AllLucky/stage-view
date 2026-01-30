@@ -1,12 +1,13 @@
 // useParams를 쓰면 URL에 있는 id값(예: 1, 2, 3)을 받아올 수 있습니다.
 import PlayInfo from '../../components/play/playDetail/PlayInfo';
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom'; // useNavigate 추가 (뒤로가기용)
 import { IoIosArrowBack } from 'react-icons/io';
 
 import SeatData from '../../components/play/playDetail/SeatData'; // 좌석 컴포넌트
 import { seatMaps } from '../../assets/data/seatData'; // 좌석 데이터 파일
 import PlaceBtn from '../../components/play/playDetail/PlaceBtn';
+import Review from '../../components/play/playDetail/Review';
 
 //PlayContentList가 아니라, App.jsx에서 전체 데이터를 받아야 합니다.
 /*새로고침 문제 (가장 중요):
@@ -40,6 +41,21 @@ const PlayDetail = ({ work }) => {
     const mapKey = play.seatKey || 'yes24Stage_num3';
     const currentSeatMap = seatMaps[mapKey];
 
+    // ✅ 좌석 선택 상태 관리
+    const [selectedSeat, setSelectedSeat] = useState(null);
+
+    const handleSeatClick = (seatId) => {
+        console.log('Clicked seat:', seatId);
+        // 이미 선택된 좌석을 다시 누르면 닫을지, 아니면 그냥 유지할지 결정
+        // 여기서는 그냥 선택된 좌석 업데이트
+        setSelectedSeat(seatId);
+    };
+
+    // 배경 클릭 시 리뷰 닫기 (선택사항)
+    const closeReview = () => {
+        setSelectedSeat(null);
+    };
+
     return (
         <div className="play-detail-page">
             <div className="inner">
@@ -64,12 +80,23 @@ const PlayDetail = ({ work }) => {
                         className="placeBtn"
                         style={{ fontSize: '24px', marginBottom: '20px', textAlign: 'center' }}
                     >
-                        {play.place}
+
                         <PlaceBtn />
                     </h4>
 
                     {/* 만능 컴포넌트에 데이터 던져주기 */}
-                    <SeatData mapData={currentSeatMap} title={play.place} />
+                    <div className={`seat-view-container ${selectedSeat ? 'mode-review' : ''}`}>
+                        <div className="seat-map-section">
+                            <SeatData
+                                mapData={currentSeatMap}
+                                title={play.place}
+                                onSeatClick={handleSeatClick}
+                            />
+                        </div>
+                        <div className="review-section">
+                            <Review seatId={selectedSeat} onClose={closeReview} />
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

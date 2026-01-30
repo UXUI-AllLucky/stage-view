@@ -1,8 +1,13 @@
 .dropdown4 {
     position: relative;
-    width: 200px;
-    font-family: 'Inter', sans-serif;
+    width: 100%;
+    box-sizing: border-box;
+
+
+
+
 }
+
 .dropdown4 #dropdown4 {
     position: absolute;
     left: 0;
@@ -14,6 +19,7 @@
     padding: 5px 10px;
     height: 50px;
 }
+
 .dropdown4 h2 {
     font-weight: 600;
     font-size: 16px;
@@ -24,26 +30,18 @@
     position: relative;
     background-color: black;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     box-shadow: 4px 4px 20px -2px rgba(0, 0, 0, 0.35);
     transition: all 0.2s;
+    z-index: 101;
+    /* Ensure h2 is above list */
 }
-.dropdown4 .arrow-down {
-    border-left: 6px solid transparent;
-    border-right: 6px solid transparent;
-    border-top: 9px solid #fff;
-    display: inline-block;
-    vertical-align: middle;
-    margin-left: 37%;
-    transition: transform ease-in-out 0.3s;
-}
-.dropdown4:hover h2 {
-    transform: translateY(-2px);
-    box-shadow: 2px 2px 5px -1px rgba(0, 0, 0, 0.35);
-    transition: all 0.2s;
-}
-.dropdown4 ul {
+
+/* ... arrow items ... */
+
+/* List Container Styling with Backdrop */
+.dropdown4 .dropdown-list {
     position: absolute;
     width: 100%;
     list-style: none;
@@ -54,8 +52,36 @@
     opacity: 0;
     padding-left: 0px;
     margin-top: -7px;
+
+    /* Unified background for the whole list */
+    background-color: rgba(20, 20, 20, 0.95);
+    /* Nearly solid dark background */
+    backdrop-filter: blur(10px);
+    /* Stronger blur */
+    border-radius: 0 0 4px 4px;
+    padding-bottom: 5px;
+    z-index: 100;
 }
-.dropdown4 ul li {
+
+.dropdown4 .arrow-down {
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 9px solid #fff;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 1%;
+    transition: transform ease-in-out 0.3s;
+}
+
+.dropdown4:hover h2 {
+    transform: translateY(-2px);
+    box-shadow: 2px 2px 5px -1px rgba(0, 0, 0, 0.35);
+    transition: all 0.2s;
+}
+
+
+
+.dropdown4 .dropdown-list li {
     border-radius: 4px;
     position: relative;
     display: inline-block;
@@ -63,9 +89,10 @@
     margin-top: 5px;
     background-color: black;
     transition: background-color 3s;
-    box-shadow: 2px 2px 10px -2px rgba(0, 0, 0, 0.35);
+    /* box-shadow: 2px 2px 10px -2px rgba(0, 0, 0, 0.35); Removed for uniformity */
 }
-.dropdown4 ul a {
+
+.dropdown4 .dropdown-list a {
     display: block;
     color: white;
     font-weight: 400;
@@ -74,20 +101,22 @@
     padding: 7px;
     border-radius: 4px;
 }
-.dropdown4 ul li:hover,
-.dropdown4 ul li a:hover,
-.dropdown4 ul li a:focus {
+
+.dropdown4 .dropdown-list li:hover,
+.dropdown4 .dropdown-list li.active,
+.dropdown4 .dropdown-list li a:hover,
+.dropdown4 .dropdown-list li a:focus {
     background-color: #5f03f4;
     transition: all 0.1s;
 }
-.dropdown4 #dropdown4:checked ~ ul {
+
+.dropdown4 #dropdown4:checked~ul {
     visibility: visible;
     opacity: 1;
+    /* Opening Transition: Smooth */
+    transition: all 0.2s ease-out;
 }
-.dropdown4 #dropdown4:checked + label .arrow-down {
+
+.dropdown4 #dropdown4:checked+label .arrow-down {
     transform: rotate(180deg);
-}
-.dropdown4 #dropdown4:not(:checked) ~ ul {
-    opacity: 1;
-    transition: opacity 0.3s ease-in-out;
 }
