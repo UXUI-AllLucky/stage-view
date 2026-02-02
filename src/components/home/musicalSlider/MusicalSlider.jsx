@@ -1,9 +1,19 @@
 import useSwiperSlider from '../../../hooks/useSwiperSlider';
 import './musicalSlider.css';
+import { Link } from 'react-router-dom';
 
-const MusicalSlider = () => {
+const MusicalSlider = ({ musicalListData }) => {
   // ✅ 훅 사용! (복잡한 로직은 다 저 안에서 처리됨)
   const { sliderRef } = useSwiperSlider();
+
+  // 1. musicalListData가 없으면 빈 배열로 처리 (에러 방지)
+  const safeData = musicalListData || [];
+
+  // 2. 'underway'인 것만 필터링 -> 리뷰 순 정렬 -> 상위 5개 자르기
+  const top5Plays = [...safeData]
+    .filter((item) => item.current === 'underway')
+    .sort((a, b) => b.review - a.review)
+    .slice(0, 5);
 
   return (
     <section className="base-template">
@@ -16,88 +26,24 @@ const MusicalSlider = () => {
           {/* Slider Container */}
           <div className="video-slider swiper" ref={sliderRef}>
             <div className="video-slider__wrapper swiper-wrapper">
-              {/* Slide 1 */}
-              <div className="video-slider__slide swiper-slide">
-                <div className="video-slider__image-box">
-                  <img
-                    src="./images/bonnieandclyde.jpg"
-                    alt="보니 앤 클라이드"
-                  />
+              {/* map으로 상세페이지 이동 */}
+              {top5Plays.map((item) => (
+                <div key={item.id} className="video-slider__slide swiper-slide">
+                  <Link to={`/musical/${item.id}`} className="slider-link">
+                    <div className="video-slider__image-box">
+                      <img src={item.img} alt={item.title} />
+                    </div>
+                    <div className="video-slider__info-box">
+                      <h5 className="video-slider__info-title">
+                        {item.title}
+                        <span className="video-slider__info-text">
+                          {item.place}
+                        </span>
+                      </h5>
+                    </div>
+                  </Link>
                 </div>
-                <div className="video-slider__info-box">
-                  <h5 className="video-slider__info-title">
-                    보니 앤 클라이드
-                    <span className="video-slider__info-text">
-                      홍익대 대학로 아트센터 대극장
-                    </span>
-                  </h5>
-                </div>
-              </div>
-
-              {/* Slide 2 */}
-              <div className="video-slider__slide swiper-slide">
-                <div className="video-slider__image-box">
-                  <img
-                    src="./images/maybehapplyending.jpg"
-                    alt="어쩌면 해피엔딩"
-                  />
-                </div>
-                <div className="video-slider__info-box">
-                  <h5 className="video-slider__info-title">
-                    어쩌면 해피엔딩
-                    <span className="video-slider__info-text">
-                      두산아트센터 연강홀
-                    </span>
-                  </h5>
-                </div>
-              </div>
-
-              {/* Slide 3 */}
-              <div className="video-slider__slide swiper-slide">
-                <div className="video-slider__image-box">
-                  <img
-                    src="./images/spirited_away.jpg"
-                    alt="센과 치히로의 행방불명 오리지널 투어"
-                  />
-                </div>
-                <div className="video-slider__info-box">
-                  <h5 className="video-slider__info-title">
-                    센과 치히로의 행방불명 오리지널 투어
-                    <span className="video-slider__info-text">
-                      예술의전당 오페라극장
-                    </span>
-                  </h5>
-                </div>
-              </div>
-
-              {/* Slide 4 (무한루프를 위해 슬라이드는 최소 3~5개 이상 있어야 자연스럽습니다) */}
-              <div className="video-slider__slide swiper-slide">
-                <div className="video-slider__image-box">
-                  <img src="./images/anna_karenina.jpg" alt="안나카레니나" />
-                </div>
-                <div className="video-slider__info-box">
-                  <h5 className="video-slider__info-title">
-                    안나 카레니나
-                    <span className="video-slider__info-text">
-                      세종문화회관 대극장
-                    </span>
-                  </h5>
-                </div>
-              </div>
-              {/* Slide 5 */}
-              <div className="video-slider__slide swiper-slide">
-                <div className="video-slider__image-box">
-                  <img src="./images/lempicka.jpg" alt="렘피카" />
-                </div>
-                <div className="video-slider__info-box">
-                  <h5 className="video-slider__info-title">
-                    렘피카
-                    <span className="video-slider__info-text">
-                      NOL 씨어터 코엑스 우리은행홀
-                    </span>
-                  </h5>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>
@@ -105,5 +51,4 @@ const MusicalSlider = () => {
     </section>
   );
 };
-
 export default MusicalSlider;

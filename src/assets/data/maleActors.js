@@ -13,7 +13,7 @@ export default [
     { id: 12, name: '오선우', profile: '/images/actor_12_Sunwoo.jpg', desc: 'Sunwoo' },
     { id: 13, name: '서도하', profile: '/images/actor_13_Doha.jpg', desc: 'Doha' },
     { id: 14, name: '신민준', profile: '/images/actor_14_Minjun.jpg', desc: 'Minjun' },
-    { id: 15, name: '권로운', profile: '/images/actor_15_Rowoon.jpg', desc: 'Rowoon' },
+    { id: 15, name: '권도운', profile: '/images/actor_15_Dowoon.jpg', desc: 'Dowoon' },
     { id: 16, name: '황이준', profile: '/images/actor_16_Yijun.jpg', desc: 'Yijun' },
     { id: 17, name: '안주원', profile: '/images/actor_17_Juwon.jpg', desc: 'Juwon' },
     { id: 18, name: '송연우', profile: '/images/actor_18_Yeonu.jpg', desc: 'Yeonu' },

@@ -1,0 +1,38 @@
+:root {
+  /* --- Light Mode (Default) --- */
+  --bg-color: #ffffff;
+  --bg-secondary: #fafafa;
+  --text-color: #333333;
+  --text-gray: #8e8e8e;
+  --border-color: #e5e5e5;
+  --primary-color: #ff6b6b; /* 포인트 컬러 (로고 등) */
+
+  /* Header */
+  --header-bg: #ffffff;
+  --nav-hover: #ff6b6b;
+
+  /* Play Detail */
+  --seat-container-bg: #000000; /* 좌석 배경은 항상 어두운게 국룰 */
+}
+
+/* --- Dark Mode Override --- */
+.dark-mode {
+  --bg-color: #121212;
+  --bg-secondary: #1e1e1e;
+  --text-color: #e0e0e0;
+  --text-gray: #aaaaaa;
+  --border-color: #333333;
+  
+  /* Header in Dark Mode */
+  --header-bg: #121212;
+  
+  /* Inputs */
+  --input-bg: #2c2c2c;
+}
+
+/* Global Transitions */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}

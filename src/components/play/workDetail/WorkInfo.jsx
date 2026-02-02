@@ -4,8 +4,8 @@ import stateInfo from '../../../assets/api/stateMenu';
 import { actorData } from '../../../assets/data/allActors';
 import { FaStar } from 'react-icons/fa6';
 
-const PlayInfo = ({ play }) => {
-    const { id, img, title, place, current, date, review, category, cast } = play;
+const WorkInfo = ({ play }) => {
+    const { id, img, title, place, current, date, review, category, cast, ticket } = play;
 
     // 2. 전체 메뉴 데이터 중에서 내 current('underway')와 같은 것을 찾습니다.
     const stateItem = stateInfo.find((item) => item.current === current);
@@ -15,7 +15,9 @@ const PlayInfo = ({ play }) => {
 
     return (
         <div className="play-info">
-            <img className="play-img" src={img} alt={title} />
+            <div className="play-img-box">
+                <img className="play-img" src={img} alt={title} />
+            </div>
             <ul className="play-info-list">
                 <li className={`state ${current}`}>{stateText}</li>
                 <li className="title">{title}</li>
@@ -25,6 +27,25 @@ const PlayInfo = ({ play }) => {
                 </li>
                 <li className="date">
                     <span>공연기간</span> {date}
+                </li>
+                <li className="ticket">
+                    <span>예매처</span>
+                    {/* ticket 데이터가 있을 때만 실행 */}
+                    {play.ticket && (
+                        <div className="ticket-list">
+                            {play.ticket.map((work, index) => (
+                                <a
+                                    key={index}
+                                    href={work.link}
+                                    target="_blank"        // 링크를 클릭했을 때, **현재 페이지는 그대로 두고, 새 창을 열어서 보여주기**
+                                    rel="noopener noreferrer" // 보안 필수 옵션 // No Opener: 우리창 못열게 하기. 안그럼 우리창 해킹위험있음 // 누가(STAGE VIEW) 보냈는지도 모르게하기(noreferrer) // 수수료 받는 경우는 noreferrer 쓰면 안됨
+                                    className="ticket-link"
+                                >
+                                    <img src={work.logo} alt={work.name} className={work.name} />
+                                </a>
+                            ))}
+                        </div>
+                    )}
                 </li>
                 <li className="review">
                     <span>관람후기</span>
@@ -62,4 +83,4 @@ const PlayInfo = ({ play }) => {
     );
 };
 
-export default PlayInfo;
+export default WorkInfo;

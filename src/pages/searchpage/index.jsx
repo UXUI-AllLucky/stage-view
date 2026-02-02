@@ -22,8 +22,9 @@ const SearchPage = ({ work }) => {
     // 2. 데이터가 없을 경우를 대비해 ?(옵셔널 체이닝) 사용
     const lowerTitle = item.title?.toLowerCase() || ''; //  타이틀
     const lowerPlace = item.place?.toLowerCase() || ''; // 장소
+    const hasActor = item.cast?.some(actor => actor.toLowerCase().includes(lowerQuery));  // cast 배열 확인 (Some: 하나라도 만족하면 true)
 
-    return lowerTitle.includes(lowerQuery) || lowerPlace.includes(lowerQuery);
+    return lowerTitle.includes(lowerQuery) || lowerPlace.includes(lowerQuery) || hasActor;
   });
 
   return (

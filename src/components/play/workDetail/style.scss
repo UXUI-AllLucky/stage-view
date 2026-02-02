@@ -1,28 +1,32 @@
 .play-info {
     width: 100%;
     max-width: 1752px;
-    margin: 72px auto;
+    margin-top: 72px;
     display: flex;
     align-content: center;
-    gap: 120px;
     padding: 72px 0;
     box-sizing: border-box;
     border-top: 1px solid #cecccc;
-
-    .play-img {
-        justify-content: flex-start;
+    .play-img-box{
+        flex: 1.5;
+        display: flex;
+        align-items: top;
+        justify-content: center;
+        .play-img {
         width: 480px;
-        height: 640px;
-        margin-left: 240px;
-
+        height: 650px;
+        
     }
-
+    }
     .play-info-list {
-        width: 100%;
+        flex: 2;
+        justify-content: center;
+        margin-right:64px;
 
         li {
             padding: 4px 0;
             box-sizing: border-box;
+           
             // border-bottom: 1px solid #eeeeee;
         }
 
@@ -59,6 +63,45 @@
                 margin-right: 16px;
             }
         }
+        .ticket {
+            font-size: 20px;
+        display: flex;
+        align-items: center; // 수직 중앙 정렬
+        gap: 16px;
+
+        .ticket-list {
+            display: flex;
+            align-items: center;
+            gap: 10px; // 로고 사이 간격
+
+            .ticket-link {
+                display: block; // a태그 영역 잡기
+                display: flex;
+                align-items: center;
+                height: 20px;
+                
+                img {
+                    height: 20px; // ⭐ 로고 높이 고정 (글자 크기랑 비슷하게)
+                    object-fit: contain; // 이미지 찌그러짐 방지
+                    transform: translateY(-2px);
+                    
+                    // (선택) 마우스 올렸을 때 살짝 투명하게
+                    &:hover {
+                        opacity: 0.7;
+                    }
+                }
+                .yes24{
+                    height: 25px;
+                    margin-right: 6px;
+                }
+                .interpark{
+                    height: 20px;
+                }
+                
+                
+            }
+        }
+    }
 
         .review {
             font-size: 20px;
@@ -72,7 +115,7 @@
             }
 
             .review-i {
-                color: rgb(240, 240, 5);
+                color:#ffd700;
                 /* 2. 아이콘 박스: 이 안에서도 SVG를 정중앙에 놓음 */
                 display: flex;
                 align-items: center;
@@ -80,8 +123,6 @@
         }
 
         .actor {
-            // margin-top: 12px;
-            // display: flex;
 
             .cast {
                 font-size: 20px;

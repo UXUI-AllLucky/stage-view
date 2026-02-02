@@ -1,9 +1,20 @@
 import useSwiperSlider from '../../../hooks/useSwiperSlider';
 import './playSlider.css';
+import { Link } from 'react-router-dom';
 
-const PlaySlider = () => {
+
+const PlaySlider = ({ playListData }) => {
   // ✅ 훅 사용! (복잡한 로직은 다 저 안에서 처리됨)
   const { sliderRef } = useSwiperSlider();
+
+  // 1. playListData가 없으면 빈 배열로 처리 (에러 방지)
+  const safeData = playListData || [];
+
+  // 2. 'underway'인 것만 필터링 -> 리뷰 순 정렬 -> 상위 5개 자르기
+  const top5Plays = [...safeData]
+    .filter((item) => item.current === 'underway')
+    .sort((a, b) => b.review - a.review)
+    .slice(0, 5);
 
   return (
     <section className="base-template">
@@ -16,82 +27,23 @@ const PlaySlider = () => {
           {/* Slider Container */}
           <div className="video-slider swiper" ref={sliderRef}>
             <div className="video-slider__wrapper swiper-wrapper">
-              {/* Slide 1 */}
-              <div className="video-slider__slide swiper-slide">
-                <div className="video-slider__image-box">
-                  <img src="./images/elephantsong.jpg" alt="엘리펀트 송" />
+              {top5Plays.map((item) => (
+                <div key={item.id} className="video-slider__slide swiper-slide">
+                  <Link to={`/play/${item.id}`} className="slider-link">
+                    <div className="video-slider__image-box">
+                      <img src={item.img} alt={item.title} />
+                    </div>
+                    <div className="video-slider__info-box">
+                      <h5 className="video-slider__info-title">
+                        {item.title}
+                        <span className="video-slider__info-text">
+                          {item.place}
+                        </span>
+                      </h5>
+                    </div>
+                  </Link>
                 </div>
-                <div className="video-slider__info-box">
-                  <h5 className="video-slider__info-title">
-                    엘리펀트 송
-                    <span className="video-slider__info-text">
-                      yes24 스테이지 3관
-                    </span>
-                  </h5>
-                </div>
-              </div>
-
-              {/* Slide 2 */}
-              <div className="video-slider__slide swiper-slide">
-                <div className="video-slider__image-box">
-                  <img src="./images/bunkertrilogy.jpg" alt="벙커 트롤리지" />
-                </div>
-                <div className="video-slider__info-box">
-                  <h5 className="video-slider__info-title">
-                    벙커 트롤리지
-                    <span className="video-slider__info-text">
-                      홍익대대학로아트센터 소극장
-                    </span>
-                  </h5>
-                </div>
-              </div>
-
-              {/* Slide 3 */}
-              <div className="video-slider__slide swiper-slide">
-                <div className="video-slider__image-box">
-                  <img
-                    src="./images/repaper_les_vivants.jpg"
-                    alt="살아있는 자를 수선하기"
-                  />
-                </div>
-                <div className="video-slider__info-box">
-                  <h5 className="video-slider__info-title">
-                    살아있는 자를 수선하기
-                    <span className="video-slider__info-text">
-                      국립정동극장
-                    </span>
-                  </h5>
-                </div>
-              </div>
-
-              {/* Slide 4 (무한루프를 위해 슬라이드는 최소 3~5개 이상 있어야 자연스럽습니다) */}
-              <div className="video-slider__slide swiper-slide">
-                <div className="video-slider__image-box">
-                  <img src="./images/then_and_today2.jpg" alt="그때도 오늘2" />
-                </div>
-                <div className="video-slider__info-box">
-                  <h5 className="video-slider__info-title">
-                    그때도 오늘2
-                    <span className="video-slider__info-text">
-                      홍익대대학로아트센터 소극장
-                    </span>
-                  </h5>
-                </div>
-              </div>
-              {/* Slide 5*/}
-              <div className="video-slider__slide swiper-slide">
-                <div className="video-slider__image-box">
-                  <img src="./images/gloomy_day.jpg" alt="사의 찬미" />
-                </div>
-                <div className="video-slider__info-box">
-                  <h5 className="video-slider__info-title">
-                    사의 찬미
-                    <span className="video-slider__info-text">
-                      세종문화회관 M씨어터
-                    </span>
-                  </h5>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>

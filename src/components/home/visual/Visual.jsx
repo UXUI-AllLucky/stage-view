@@ -4,12 +4,12 @@ import '../playSlider/playSlider.css';
 import '../musicalSlider/musicalSlider.css';
 import './style.scss';
 
-const Visual = () => {
+const Visual = ({ playListData, musicalListData }) => {
     return (
         <div id="visual">
             <div className="main_visual">
-                <PlaySlider />
-                <MusicalSlider />
+                <PlaySlider playListData={playListData}/>
+                <MusicalSlider musicalListData={musicalListData}/>
             </div>
         </div>
     );

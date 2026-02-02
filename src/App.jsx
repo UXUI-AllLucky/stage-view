@@ -5,7 +5,7 @@ import Layout from './components/common/Layout';
 import { useState } from 'react';
 import { Home, Musical, Play, SearchPage } from './pages';
 import { SearchProvider } from './context/SearchContext';
-import PlayDetail from './pages/play/PlayDetail';
+import WorkDetail from './pages/play/WorkDetail';
 
 const App = () => {
   const [work, setWork] = useState(WorkData);
@@ -17,12 +17,15 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Layout work={work} />}>
               <Route index element={<Home WorkData={WorkData} />} />
+              <Route path="/play/:id" element={<WorkDetail work={work} />} />
+              <Route path="/musical/:id" element={<WorkDetail work={work} />} />
               <Route path="/play" element={<Play WorkData={WorkData} />} />
-              <Route path="/play/:id" element={<PlayDetail work={work} />} />
+              <Route path="/play/:id" element={<WorkDetail work={work} />} />
               <Route
                 path="/musical"
                 element={<Musical WorkData={WorkData} />}
               />
+              <Route path="/musical/:id" element={<WorkDetail work={work} />} />
               {/* 검색 결과 페이지 */}
               <Route path="/searchpage" element={<SearchPage work={work} />} />
             </Route>

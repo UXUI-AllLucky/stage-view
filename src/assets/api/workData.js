@@ -7,18 +7,52 @@ export default [
         current: 'underway',
         img: '/images/bunkertrilogy.jpg',
         date: '2025.12.17~2026.3.2',
+       ticket: [
+            {
+                name: 'interpark',
+                logo: '/images/nol_logo.svg',
+                link: 'https://tickets.interpark.com/goods/25015600',
+            }
+        ], 
         review: 124,
         alt: 'bunkertrilogy',
         category: 'play',
         cast: ['김서연', '이지우', '박민서', '김도윤', '이서준', '박시우', '최하준', '정지호'],
+        season: '2025~2026 삼연',
+        // ✅ [추가] 과거 시즌 데이터 (배열로 여러 개 넣을 수 있음)
+        history: [
+            {
+                season: '2023 재연',           // 시즌 이름
+                place: '두산아트센터 연강홀',   // 과거 극장 이름
+                seatKey: 'artHall_s'          // 과거 극장 좌석표 키 (seatData.js에 있어야 함!)
+            },
+            // {
+            //     season: '2021 초연',
+            //     place: '드림아트센터 2관',
+            //     seatKey: 'small_theater'      // 또 다른 과거 키
+            // }
+        ]
     },
     {
         id: 2,
         title: '터키 블루스',
         place: '예술의전당 자유소극장',
+         seatKey: 'artHall_s',
         current: 'underway',
         img: '/images/turkey_blues.jpg',
         date: '2025.12.6~2026.2.1',
+        ticket: [
+            {
+                name: 'yes24',
+                logo: '/images/yes24_logo.svg', 
+                link: 'https://ticket.yes24.com/Perf/55692', // 링크
+            },
+            // {
+            //     name: 'interpark',
+            //     logo: '/images/nol_logo.svg',
+            //     link: 'https://tickets.interpark.com/goods/25014678',
+            // }
+        ], 
         review: 54,
         alt: 'turkey_blues',
         category: 'play',
@@ -33,6 +67,19 @@ export default [
             '장수호',
             '임유준',
         ],
+        // ✅ [추가] 과거 시즌 데이터 (배열로 여러 개 넣을 수 있음)
+        history: [
+            {
+                season: '2023 재연',           // 시즌 이름
+                place: '홍익대대학로아트센터 소극장',   // 과거 극장 이름
+                seatKey: 'yes24Stage_num3'          // 과거 극장 좌석표 키 (seatData.js에 있어야 함!)
+            },
+            {
+                season: '2021 초연',
+                place: '드림아트센터 2관',
+                seatKey: 'small_theater'      // 또 다른 과거 키
+            }
+        ]
     },
     {
         id: 3,
@@ -41,6 +88,13 @@ export default [
         current: 'underway',
         img: '/images/repaper_les_vivants.jpg',
         date: '2026.1.13~3.8',
+        ticket: [
+            {
+                name: 'interpark',
+                logo: '/images/nol_logo.svg',
+                link: 'https://tickets.interpark.com/goods/25017744',
+            }
+        ], 
         review: 80,
         alt: 'repaper_les_vivants',
         category: 'play',
@@ -53,6 +107,18 @@ export default [
         current: 'underway',
         img: '/images/shear_madness.jpg',
         date: '2015.11.12~',
+         ticket: [
+            {
+                name: 'yes24',
+                logo: '/images/yes24_logo.svg', 
+                link: 'http://ticket.yes24.com/Perf/12345', // 링크
+            },
+            {
+                name: 'interpark',
+                logo: '/images/nol_logo.svg',
+                link: 'https://tickets.interpark.com/goods/25015731',
+            }
+        ], 
         review: 24,
         alt: 'shear_madness',
         category: 'play',
@@ -77,6 +143,13 @@ export default [
         current: 'underway',
         img: '/images/secreat_passage.jpg',
         date: '2026.2.13~5.3',
+        ticket: [
+            {
+                name: 'interpark',
+                logo: '/images/nol_logo.svg',
+                link: 'https://tickets.interpark.com/goods/25017730',
+            }
+        ], 
         review: 80,
         alt: 'secreat_passage',
         category: 'play',
@@ -89,6 +162,18 @@ export default [
         current: 'underway',
         img: '/images/elephantsong.jpg',
         date: '2025.11.22~2026.3.8',
+         ticket: [
+            {
+                name: 'yes24',
+                logo: '/images/yes24_logo.svg', 
+                link: 'http://ticket.yes24.com/Perf/12345', // 링크
+            },
+            {
+                name: 'interpark',
+                logo: '/images/nol_logo.svg',
+                link: 'https://tickets.interpark.com/goods/25015731',
+            }
+        ], 
         review: 442,
         alt: 'elephantsong',
         category: 'play',
@@ -111,6 +196,18 @@ export default [
         current: 'underway',
         img: '/images/then_and_today2.jpg',
         date: '2025.12.16~2026.2.22',
+         ticket: [
+            {
+                name: 'yes24',
+                logo: '/images/logo/logo_yes24.png', 
+                link: 'http://ticket.yes24.com/Perf/12345', // 링크
+            },
+            {
+                name: 'interpark',
+                logo: '/images/logo/logo_interpark.png',
+                link: 'https://tickets.interpark.com/goods/25016154',
+            }
+        ], 
         review: 21,
         alt: 'then_and_today2',
         category: 'play',
@@ -133,6 +230,13 @@ export default [
         current: 'underway',
         img: '/images/gloomy_day.jpg',
         date: '2026.1.30~3.2',
+         ticket: [
+            {
+                name: 'interpark',
+                logo: '/images/logo/logo_interpark.png',
+                link: 'https://tickets.interpark.com/goods/25018646',
+            }
+        ], 
         review: 54,
         alt: 'gloomy_day',
         category: 'play',
@@ -155,6 +259,13 @@ export default [
         current: 'underway',
         img: '/images/hangover.jpg',
         date: '2014.9.11~',
+         ticket: [
+            {
+                name: 'interpark',
+                logo: '/images/logo/logo_interpark.png',
+                link: 'https://tickets.interpark.com/goods/23005704',
+            }
+        ], 
         review: 35,
         alt: 'hangover',
         category: 'play',
@@ -177,6 +288,13 @@ export default [
         current: 'underway',
         img: '/images/journeysend.jpg',
         date: '2026.1.22~2.1',
+         ticket: [
+            {
+                name: 'yes24',
+                logo: '/images/logo/logo_yes24.png', 
+                link: 'https://ticket.yes24.com/Perf/56359', // 링크
+            },
+        ], 
         review: 11,
         alt: 'journeysend',
         category: 'play',
@@ -189,6 +307,13 @@ export default [
         current: 'underway',
         img: '/images/deathnote.jpg',
         date: '2025.10.14~2026.5.10',
+         ticket: [
+            {
+                name: 'interpark',
+                logo: '/images/logo/logo_interpark.png',
+                link: 'https://tickets.interpark.com/goods/25012652',
+            }
+        ], 
         review: 876,
         alt: 'deathnote',
         category: 'musical',
@@ -212,6 +337,18 @@ export default [
         current: 'underway',
         img: '/images/beetlejuice.jpg',
         date: '2025.12.16~2026.3.22',
+         ticket: [
+            {
+                name: 'yes24',
+                logo: '/images/logo/logo_yes24.png', 
+                link: 'http://ticket.yes24.com/Perf/12345', // 링크
+            },
+            {
+                name: 'interpark',
+                logo: '/images/logo/logo_interpark.png',
+                link: 'https://tickets.interpark.com/goods/L0000127',
+            }
+        ], 
         review: 245,
         alt: 'beetlejuice',
         category: 'musical',
@@ -235,6 +372,18 @@ export default [
         current: 'underway',
         img: '/images/eternity.jpg',
         date: '2025.12.27~2026.3.15',
+         ticket: [
+            {
+                name: 'yes24',
+                logo: '/images/logo/logo_yes24.png', 
+                link: 'https://ticket.yes24.com/Perf/56127', // 링크
+            },
+            {
+                name: 'interpark',
+                logo: '/images/logo/logo_interpark.png',
+                link: 'https://tickets.interpark.com/goods/25016942',
+            }
+        ], 
         review: 41,
         alt: 'eternity',
         category: 'musical',
@@ -257,6 +406,18 @@ export default [
         current: 'underway',
         img: '/images/fanletter.jpg',
         date: '2025.12.05~2026.2.22',
+         ticket: [
+            {
+                name: 'yes24',
+                logo: '/images/logo/logo_yes24.png', 
+                link: 'https://ticket.yes24.com/Perf/55736', // 링크
+            },
+            {
+                name: 'interpark',
+                logo: '/images/logo/logo_interpark.png',
+                link: 'https://tickets.interpark.com/goods/25015215',
+            }
+        ], 
         review: 314,
         alt: 'fanletter',
         category: 'musical',
@@ -279,6 +440,19 @@ export default [
         current: 'underway',
         img: '/images/in_the_burning_darkness.jpg',
         date: '2025.12.10~2026.3.8',
+         ticket: [
+            {
+                name: 'yes24',
+                logo: '/images/logo/logo_yes24.png', 
+                link: 'https://ticket.yes24.com/Perf/56684', // 링크
+            },
+            {
+                name: 'interpark',
+                logo: '/images/logo/logo_interpark.png',
+                link: 'https://tickets.interpark.com/goods/25016018',
+            }
+          
+        ], 
         review: 51,
         alt: 'in_the_burning_darkness',
         category: 'musical',
@@ -302,6 +476,18 @@ export default [
         current: 'underway',
         img: '/images/kingky_boots.jpg',
         date: '2025.12.17~2026.3.29',
+         ticket: [
+            {
+                name: 'yes24',
+                logo: '/images/logo/logo_yes24.png', 
+                link: 'https://ticket.yes24.com/Perf/56770', // 링크
+            },
+            {
+                name: 'interpark',
+                logo: '/images/logo/logo_interpark.png',
+                link: 'https://tickets.interpark.com/goods/25014553',
+            }
+        ], 
         review: 649,
         alt: 'kingky_boots',
         category: 'musical',
@@ -324,6 +510,13 @@ export default [
         current: 'expected',
         img: '/images/lempicka.jpg',
         date: '2026.3.21~6.21',
+         ticket: [
+            {
+                name: 'interpark',
+                logo: '/images/logo/logo_interpark.png',
+                link: 'https://tickets.interpark.com/goods/26000685',
+            }
+        ], 
         review: 0,
         alt: 'lempicka',
         category: 'musical',
@@ -346,6 +539,18 @@ export default [
         current: 'underway',
         img: '/images/life_of_pi.jpg',
         date: '2025.11.29 ~ 2026.3.2',
+         ticket: [
+            {
+                name: 'yes24',
+                logo: '/images/logo/logo_yes24.png', 
+                link: 'https://ticket.yes24.com/Perf/55338', // 링크
+            },
+            {
+                name: 'interpark',
+                logo: '/images/logo/logo_interpark.png',
+                link: 'https://tickets.interpark.com/goods/25013804',
+            }
+        ], 
         review: 94,
         alt: 'life_of_pi',
         category: 'musical',
@@ -368,6 +573,18 @@ export default [
         current: 'underway',
         img: '/images/man_wearing_hanbok.jpg',
         date: '2025.12.2~2026.3.8',
+         ticket: [
+            {
+                name: 'yes24',
+                logo: '/images/logo/logo_yes24.png', 
+                link: 'http://ticket.yes24.com/Perf/12345', // 링크
+            },
+            {
+                name: 'interpark',
+                logo: '/images/logo/logo_interpark.png',
+                link: 'https://tickets.interpark.com/goods/12345',
+            }
+        ], 
         review: 248,
         alt: 'man_wearing_hanbok',
         category: 'musical',
@@ -391,6 +608,18 @@ export default [
         current: 'underway',
         img: '/images/moulin_rouge.jpg',
         date: '2025.11.27~2026.2.22',
+         ticket: [
+            {
+                name: 'yes24',
+                logo: '/images/logo/logo_yes24.png', 
+                link: 'http://ticket.yes24.com/Perf/12345', // 링크
+            },
+            {
+                name: 'interpark',
+                logo: '/images/logo/logo_interpark.png',
+                link: 'https://tickets.interpark.com/goods/12345',
+            }
+        ], 
         review: 624,
         alt: 'moulin_rouge',
         category: 'musical',
@@ -413,6 +642,18 @@ export default [
         current: 'underway',
         img: '/images/night_on_galaxy_railroad.jpg',
         date: '2025.12.23~2026.3.15',
+         ticket: [
+            {
+                name: 'yes24',
+                logo: '/images/logo/logo_yes24.png', 
+                link: 'http://ticket.yes24.com/Perf/12345', // 링크
+            },
+            {
+                name: 'interpark',
+                logo: '/images/logo/logo_interpark.png',
+                link: 'https://tickets.interpark.com/goods/12345',
+            }
+        ], 
         review: 387,
         alt: 'night_on_galaxy_railroad',
         category: 'musical',
@@ -425,6 +666,18 @@ export default [
         current: 'expected',
         img: '/images/ppangya.jpg',
         date: '2026.3.3~5.24',
+         ticket: [
+            {
+                name: 'yes24',
+                logo: '/images/logo/logo_yes24.png', 
+                link: 'http://ticket.yes24.com/Perf/12345', // 링크
+            },
+            {
+                name: 'interpark',
+                logo: '/images/logo/logo_interpark.png',
+                link: 'https://tickets.interpark.com/goods/12345',
+            }
+        ], 
         review: 102,
         alt: 'ppangya',
         category: 'play',
@@ -437,6 +690,18 @@ export default [
         current: 'expected',
         img: '/images/red_lotus.jpg',
         date: '2026.2.28~5.17',
+         ticket: [
+            {
+                name: 'yes24',
+                logo: '/images/logo/logo_yes24.png', 
+                link: 'http://ticket.yes24.com/Perf/12345', // 링크
+            },
+            {
+                name: 'interpark',
+                logo: '/images/logo/logo_interpark.png',
+                link: 'https://tickets.interpark.com/goods/12345',
+            }
+        ], 
         review: 187,
         alt: 'red_lotus',
         category: 'musical',
@@ -460,6 +725,18 @@ export default [
         current: 'underway',
         img: '/images/rent.jpg',
         date: '2025.11.9~2026.2.22',
+         ticket: [
+            {
+                name: 'yes24',
+                logo: '/images/logo/logo_yes24.png', 
+                link: 'http://ticket.yes24.com/Perf/12345', // 링크
+            },
+            {
+                name: 'interpark',
+                logo: '/images/logo/logo_interpark.png',
+                link: 'https://tickets.interpark.com/goods/12345',
+            }
+        ], 
         review: 245,
         alt: 'rent',
         category: 'musical',
@@ -483,6 +760,18 @@ export default [
         current: 'underway',
         img: '/images/spirited_away.jpg',
         date: '2025.11.~.2.22',
+         ticket: [
+            {
+                name: 'yes24',
+                logo: '/images/logo/logo_yes24.png', 
+                link: 'http://ticket.yes24.com/Perf/12345', // 링크
+            },
+            {
+                name: 'interpark',
+                logo: '/images/logo/logo_interpark.png',
+                link: 'https://tickets.interpark.com/goods/12345',
+            }
+        ], 
         review: 172,
         alt: 'spirited_away',
         category: 'musical',
@@ -495,6 +784,18 @@ export default [
         current: 'expected',
         img: '/images/touch.jpg',
         date: '2026.2.10~3.22',
+         ticket: [
+            {
+                name: 'yes24',
+                logo: '/images/logo/logo_yes24.png', 
+                link: 'http://ticket.yes24.com/Perf/12345', // 링크
+            },
+            {
+                name: 'interpark',
+                logo: '/images/logo/logo_interpark.png',
+                link: 'https://tickets.interpark.com/goods/12345',
+            }
+        ], 
         review: 0,
         alt: 'touch',
         category: 'play',
@@ -518,6 +819,18 @@ export default [
         current: 'expected',
         img: '/images/anna_karenina.jpg',
         date: '2026.2.20~3.29',
+         ticket: [
+            {
+                name: 'yes24',
+                logo: '/images/logo/logo_yes24.png', 
+                link: 'http://ticket.yes24.com/Perf/12345', // 링크
+            },
+            {
+                name: 'interpark',
+                logo: '/images/logo/logo_interpark.png',
+                link: 'https://tickets.interpark.com/goods/12345',
+            }
+        ], 
         review: 324,
         alt: 'anna_karenina',
         category: 'musical',
@@ -541,6 +854,18 @@ export default [
         current: 'underway',
         img: '/images/bonnieandclyde.jpg',
         date: '2025.12.11`2026.3.2',
+         ticket: [
+            {
+                name: 'yes24',
+                logo: '/images/logo/logo_yes24.png', 
+                link: 'http://ticket.yes24.com/Perf/12345', // 링크
+            },
+            {
+                name: 'interpark',
+                logo: '/images/logo/logo_interpark.png',
+                link: 'https://tickets.interpark.com/goods/12345',
+            }
+        ], 
         review: 428,
         alt: 'bonnieandclyde',
         category: 'musical',
@@ -563,6 +888,18 @@ export default [
         current: 'expected',
         img: '/images/mouth_piece.jpg',
         date: '2026.4.4~6.21',
+         ticket: [
+            {
+                name: 'yes24',
+                logo: '/images/logo/logo_yes24.png', 
+                link: 'http://ticket.yes24.com/Perf/12345', // 링크
+            },
+            {
+                name: 'interpark',
+                logo: '/images/logo/logo_interpark.png',
+                link: 'https://tickets.interpark.com/goods/12345',
+            }
+        ], 
         review: 246,
         alt: 'mouth_piece',
         category: 'play',
@@ -587,10 +924,22 @@ export default [
         current: 'expected',
         img: '/images/swingdays.jpg',
         date: '2026.4.16~7.5.',
+         ticket: [
+            {
+                name: 'yes24',
+                logo: '/images/logo/logo_yes24.png', 
+                link: 'http://ticket.yes24.com/Perf/12345', // 링크
+            },
+            {
+                name: 'interpark',
+                logo: '/images/logo/logo_interpark.png',
+                link: 'https://tickets.interpark.com/goods/12345',
+            }
+        ], 
         review: 142,
         alt: 'swingdays',
         category: 'musical',
-        cast: ['박민규', '한유찬', '신성록', '정서후', '전시윤', '김수연', '권로운', '강도영'],
+        cast: ['박민규', '한유찬', '오진우', '정서후', '전시윤', '장지환', '권도운', '강도영'],
     },
     // {
     //     id: ,
