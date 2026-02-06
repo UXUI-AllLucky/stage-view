@@ -1,0 +1,100 @@
+/* src/components/play/dateSelector.scss */
+
+.custom-calendar {
+    background-color: #222;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    /* 달력 너비 */
+    color: white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    border: 1px solid #444;
+
+    /* 1. 헤더 (년/월 이동) */
+    .calendar-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+
+        .current-month {
+            font-size: 18px;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        button {
+            background: none;
+            border: none;
+            color: #aaa;
+            font-size: 20px;
+            cursor: pointer;
+            padding: 5px;
+            display: flex;
+            align-items: center;
+
+            &:hover {
+                color: #fff;
+            }
+        }
+    }
+
+    /* 2. 요일 (일~토) */
+    .calendar-weekdays {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        text-align: center;
+        margin-bottom: 10px;
+        font-weight: bold;
+        color: #888;
+        font-size: 14px;
+
+        /* 일요일 빨간색 포인트 */
+        div:first-child {
+            color: #ff5f5f;
+        }
+    }
+
+    /* 3. 날짜 그리드 */
+    .calendar-grid {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        gap: 5px;
+
+        .calendar-day {
+            height: 36px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            border-radius: 50%;
+            /* 동그라미 모양 */
+            font-size: 14px;
+            transition: all 0.2s;
+
+            /* 마우스 올렸을 때 */
+            &:hover:not(.empty):not(.disabled) {
+                background-color: #444;
+            }
+
+            /* 선택된 날짜 (보라색 강조) */
+            &.selected {
+                background-color: #5f03f4;
+                color: white;
+                font-weight: bold;
+                box-shadow: 0 0 10px rgba(95, 3, 244, 0.6);
+            }
+
+            /* 빈 칸 (지난달/다음달 공간) */
+            &.empty {
+                cursor: default;
+            }
+
+            /* 지난 날짜 (선택 불가) */
+            &.disabled {
+                color: #444;
+                cursor: not-allowed;
+            }
+        }
+    }
+}
